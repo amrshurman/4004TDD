@@ -12,10 +12,10 @@ public class LowerSectionTest extends TestCase{
 		
 		d1.setNumber(2); d2.setNumber(2); d3.setNumber(2);
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
-		DiceGroup.add(d1);DiceGroup.add(d2); 
+		DiceGroup.add(d1);DiceGroup.add(d2); DiceGroup.add(d3); 
 		DiceGroup dc= new DiceGroup();
 		ArrayList<Dice> NewDiceGroup= dc.threeOfKind(DiceGroup);
 		System.out.println("Size: " + NewDiceGroup.size());
-		assertEquals(NewDiceGroup.size(),3); //size of group should be 0
+		assertEquals(NewDiceGroup.size(),3); //size of group should be 3
 	}
 }
