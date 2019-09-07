@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 public class UpperSectionTest extends TestCase{
 
-	public void testCheckUpperAddition() {
+	public void testCheckUpperAddition() { //should take two 2's and disregard the 3
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
@@ -14,8 +14,8 @@ public class UpperSectionTest extends TestCase{
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);
 		DiceGroup dc= new DiceGroup();
-		int i= dc.upperAddition(DiceGroup);
-		System.out.println(i);
-		assertEquals(i,4);
+		ArrayList<Dice> NewDiceGroup= dc.upperAddition(DiceGroup);
+		System.out.println(NewDiceGroup.get(1).getNumber());
+		assertEquals(NewDiceGroup.get(0).getNumber(),2);
 	}
 }
