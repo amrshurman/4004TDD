@@ -17,12 +17,13 @@ for (int i=0;i<d.size();i++) {
 }
 }
 
-public int getTotal(ArrayList<Dice> d) { //get total number of seleted dice
+public int getTotal(ArrayList<Dice> d) { //get total number of selected dice
 	int t=0;
 	for (int i=0;i<d.size();i++) {
 		t+=d.get(i).getNumber();
 	}
 	return t;
 }
+
 
 }
