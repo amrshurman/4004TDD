@@ -18,6 +18,7 @@ public class UpperSectionTest extends TestCase{
 		System.out.println(NewDiceGroup.get(1).getNumber());
 		System.out.println("Size: " + NewDiceGroup.size());
 		assertEquals(NewDiceGroup.get(0).getNumber(),2);
+		assertEquals(NewDiceGroup.size(),2);
 	}
 	
 	public void testCheckUpperAddition2() { //should take two 2's and three 3's
@@ -32,6 +33,8 @@ public class UpperSectionTest extends TestCase{
 		DiceGroup dc= new DiceGroup();
 		ArrayList<Dice> NewDiceGroup= dc.upperAddition(DiceGroup);
 		System.out.println("Size: " + NewDiceGroup.size());
-		assertEquals(NewDiceGroup.size(),5);
+		assertEquals(NewDiceGroup.size(),5); //size of group should be 5
+		assertEquals(NewDiceGroup.get(4).getNumber(),3);
 	}
+	
 }
