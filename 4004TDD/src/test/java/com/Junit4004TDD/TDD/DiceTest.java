@@ -8,7 +8,6 @@ public class DiceTest extends TestCase{
 	Dice d = new Dice();
 	int i=0;
 	i = d.roll();
-
 	assertNotEquals(i,0);
 	}
 	
