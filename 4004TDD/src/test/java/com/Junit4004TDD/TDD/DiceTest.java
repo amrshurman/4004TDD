@@ -11,11 +11,11 @@ public class DiceTest extends TestCase{
 	assertNotEquals(i,0); //if roll works then we should get a NON ZERO value as a roll
 	}
 	
-	public void testGroupRoll() {
+	public void testGroupRoll() { //tests whether multiple rolls can be done at once. Also tests the "total number for the Dice Group" functionality
 		DiceGroup dg = new DiceGroup();
 		int i = 0;
-		dg.groupRoll();
-		i=dg.getTotal();
+		dg.groupRoll(dg.DiceGroup);
+		i=dg.getTotal(dg.DiceGroup);
 		assertNotEquals(i,0);
 	}
 	
