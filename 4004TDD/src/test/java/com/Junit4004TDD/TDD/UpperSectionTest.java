@@ -16,6 +16,7 @@ public class UpperSectionTest extends TestCase{
 		DiceGroup dc= new DiceGroup();
 		ArrayList<Dice> NewDiceGroup= dc.upperAddition(DiceGroup);
 		System.out.println(NewDiceGroup.get(1).getNumber());
+		System.out.println("Size: " + NewDiceGroup.size());
 		assertEquals(NewDiceGroup.get(0).getNumber(),2);
 	}
 	
@@ -30,7 +31,7 @@ public class UpperSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		DiceGroup dc= new DiceGroup();
 		ArrayList<Dice> NewDiceGroup= dc.upperAddition(DiceGroup);
-		System.out.println(NewDiceGroup.size());
+		System.out.println("Size: " + NewDiceGroup.size());
 		assertEquals(NewDiceGroup.size(),5);
 	}
 }

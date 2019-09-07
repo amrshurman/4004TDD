@@ -39,9 +39,7 @@ public class DiceGroup { // class for GROUP of dice
 				}
 			}
 			if (count > 1) {
-				for (int k = 0; k < count; k++) {
-					fd.add(d.get(i));
-				}
+				fd.add(d.get(i));
 			}
 		}
 		return fd;
