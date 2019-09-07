@@ -25,5 +25,24 @@ public int getTotal(ArrayList<Dice> d) { //get total number of selected dice
 	return t;
 }
 
+public int upperAddition(ArrayList<Dice> d) { //adds the upper addition part of the score sheet
+	int finalCount = 0;
+	int finalTarget = 0;
+	for (int i = 0;i<d.size();i++) {
+		int count = 0;
+		int target = 0;
+		target = d.get(i).getNumber();
+		for (int j = 0;j<d.size();j++) {
+			if (target== d.get(j).getNumber()) {
+				count++;
+			}
+		}
+		if (count>finalCount) { 
+			finalCount=count;
+			finalTarget=target;
+		}
+	}
+	return (finalTarget * finalCount);
+}
 
 }
