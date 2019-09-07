@@ -1,10 +1,10 @@
 package com.Junit4004TDD.TDD;
 
-import static org.junit.Assert.assertEquals;
+import junit.framework.TestCase;
 
 import java.util.ArrayList;
 
-public class LowerSectionTest {
+public class LowerSectionTest extends TestCase{
 	public void testCheckUpperAddition3() { //should take all threes as three of a kind
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();

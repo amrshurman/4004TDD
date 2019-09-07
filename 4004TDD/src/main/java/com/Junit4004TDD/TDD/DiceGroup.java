@@ -44,5 +44,23 @@ public class DiceGroup { // class for GROUP of dice
 		}
 		return fd;
 	}
+	
+	public ArrayList<Dice> threeOfKind(ArrayList<Dice> d) {
+		ArrayList<Dice> fd = new ArrayList<Dice>();
+		for (int i = 0; i < d.size(); i++) {
+			int count = 0;
+			int target = 0;
+			target = d.get(i).getNumber();
+			for (int j = 0; j < d.size(); j++) {
+				if (target == d.get(j).getNumber()) {
+					count++;
+				}
+			}
+			if (count > 2) { //if we find any group of duplicated numbers then we add to list of upper addition group
+				fd.add(d.get(i));
+			}
+		}
+		return fd;
+	}
 
 }
