@@ -38,7 +38,7 @@ public class DiceGroup { // class for GROUP of dice
 					count++;
 				}
 			}
-			if (count > 1) {
+			if (count > 1) { //if we find any group of duplicated numbers then we add to list of upper addition group
 				fd.add(d.get(i));
 			}
 		}
