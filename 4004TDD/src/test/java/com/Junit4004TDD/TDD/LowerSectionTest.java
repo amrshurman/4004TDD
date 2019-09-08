@@ -1,7 +1,6 @@
 package com.Junit4004TDD.TDD;
 
 import junit.framework.TestCase;
-
 import java.util.ArrayList;
 
 public class LowerSectionTest extends TestCase{
