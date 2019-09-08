@@ -45,7 +45,7 @@ public class DiceGroup { // class for GROUP of dice
 		return fd;
 	}
 	
-	public ArrayList<Dice> threeOfKind(ArrayList<Dice> d) {
+	public ArrayList<Dice> OfKind(ArrayList<Dice> d) {
 		ArrayList<Dice> fd = new ArrayList<Dice>();
 		for (int i = 0; i < d.size(); i++) {
 			int count = 0;
