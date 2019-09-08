@@ -94,4 +94,33 @@ public class DiceGroup { // class for GROUP of dice
 		} else
 			return null;
 	}
+
+	public ArrayList<Dice> fullHouse(ArrayList<Dice> d) {
+		ArrayList<Dice> fd = new ArrayList<Dice>();
+		ArrayList<Dice> fd2 = new ArrayList<Dice>();
+		for (int i = 0; i < d.size(); i++) {
+			int count = 0;
+			int target = 0;
+			target = d.get(i).getNumber();
+			for (int j = 0; j < d.size(); j++) {
+				if (target == d.get(j).getNumber()) {
+					count++;
+				}
+			}
+			if (count == 3) { // if we find any group of duplicated numbers then we add to list
+				fd.add(d.get(i));
+				for (int k = 0; k < d.size(); k++) {
+					if (target != d.get(k).getNumber()) {
+						fd2.add(d.get(k));
+					}
+				}
+				if (fd2.size()==2) {
+					if (fd2.get(0).getNumber()==fd2.get(1).getNumber()) {
+						fd.add(fd2.get(0));fd.add(fd2.get(1));
+					}
+				}
+			}
+		}
+		return fd;
+	}
 }
