@@ -38,13 +38,14 @@ public class DiceGroup { // class for GROUP of dice
 					count++;
 				}
 			}
-			if (count > 1) { //if we find any group of duplicated numbers then we add to list of upper addition group
+			if (count > 1) { // if we find any group of duplicated numbers then we add to list of upper
+								// addition group
 				fd.add(d.get(i));
 			}
 		}
 		return fd;
 	}
-	
+
 	public ArrayList<Dice> OfKind(ArrayList<Dice> d) {
 		ArrayList<Dice> fd = new ArrayList<Dice>();
 		for (int i = 0; i < d.size(); i++) {
@@ -56,11 +57,41 @@ public class DiceGroup { // class for GROUP of dice
 					count++;
 				}
 			}
-			if (count > 2) { //if we find any group of duplicated numbers then we add to list of upper addition group
+			if (count > 2) { // if we find any group of duplicated numbers then we add to list of upper
+								// addition group
 				fd.add(d.get(i));
 			}
 		}
 		return fd;
 	}
 
+	public ArrayList<Dice> sequence(ArrayList<Dice> d) {
+		ArrayList<Dice> fd = new ArrayList<Dice>();
+		int count = 0;
+		for (int i = 0; i < d.size(); i++) {
+			ArrayList<Dice> tempd = new ArrayList<Dice>();
+			Dice td = new Dice();
+			if (d.get(i).getNumber() < 4) {
+				td = d.get(i);
+				tempd.add(td);
+				count++;
+				for (int z = 0; z < d.size(); z++) {
+					for (int j = 0; j < d.size(); j++) {
+						if (td.getNumber() == d.get(j).getNumber() - 1) {
+							td = d.get(j);
+							tempd.add(td);
+							count++;
+						}
+					}
+				}
+			}
+			if (fd.size() <= tempd.size()) {
+				fd = tempd;
+			}
+		}
+		if (count > 3) {
+			return fd;
+		} else
+			return null;
+	}
 }
