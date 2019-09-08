@@ -87,4 +87,17 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> NewDiceGroup= dc.sequence(DiceGroup);
 		assertEquals(NewDiceGroup.size(),5); //size of group should be 5
 	}
+	public void testChance() { //should take sum of all
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		
+		d1.setNumber(1); d2.setNumber(1); d3.setNumber(1);d4.setNumber(1);d5.setNumber(1);
+		DiceGroup dg= new DiceGroup();
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2); DiceGroup.add(d3); DiceGroup.add(d4); DiceGroup.add(d5); 
+		assertEquals(dg.getTotal(DiceGroup),5); 
+	}
 }
