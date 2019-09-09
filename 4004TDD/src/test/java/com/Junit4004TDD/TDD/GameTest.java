@@ -11,4 +11,15 @@ public class GameTest extends TestCase{ //should print score sheet properly
 	 ss.print();
 	 assertEquals(0,0);
  }
+ 
+ public void testSoreSheet2() { //should print Upper Section correctly with bonus for p1
+	 Player p1 = new Player("p1");
+	 Player p2 = new Player("p2");
+	 Player p3 = new Player("p3");
+	 p1.aces=10;
+	 p1.fives=55;
+	 ScoreSheet ss = new ScoreSheet(p1,p2,p3);
+	 ss.print();
+	 assertEquals(0,0);
+ }
 }

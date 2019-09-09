@@ -31,7 +31,7 @@ public int USbefore() {
 	if ((aces+twos+threes+fours+fives+sixes)>62) {
 		Bonus=35;
 	}
-	return Bonus;
+	return (aces+twos+threes+fours+fives+sixes);
 }
 
 public int USafter() {
