@@ -49,4 +49,16 @@ public class UpperSectionTest extends TestCase{
 		System.out.println("Size: " + NewDiceGroup.size());
 		assertEquals(NewDiceGroup.size(),0); //size of group should be 0
 	}
+	
+	public void testUpperTotal() { //should add both 1's and return 2
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		
+		d1.setNumber(1); d2.setNumber(1);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);
+		DiceGroup dc= new DiceGroup();
+		int total = dc.getTotal(DiceGroup);
+		assertEquals(total,2); 
+	}
 }
