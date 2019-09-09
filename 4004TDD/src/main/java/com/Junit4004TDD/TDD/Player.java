@@ -27,4 +27,30 @@ public Player(String name) {
 }
 public DiceGroup dg = new DiceGroup();
 
+public int USbefore() {
+	if ((aces+twos+threes+fours+fives+sixes)>62) {
+		Bonus=35;
+	}
+	return Bonus;
+}
+
+public int USafter() {
+	USAfterBonus=Bonus+aces+twos+threes+fours+fives+sixes;
+	return USAfterBonus;
+}
+
+public int totLS() {
+	TotalLS=threeOfKind + fourOfKind + Yahtzee + smStraight + lgStraight + chance + YahtzeeBonus;
+	return TotalLS;
+}
+
+public int totUS() {
+	TotalUS = USAfterBonus;
+	return TotalUS;
+}
+
+public int GrandTotal() {
+	GrandTotal = TotalUS + TotalLS;
+	return GrandTotal;
+}
 }
