@@ -12,9 +12,9 @@ public class DiceGroup { // class for GROUP of dice
 		}
 	}
 
-	public void groupRoll(ArrayList<Dice> d) { // roll all selected dice
-		for (int i = 0; i < d.size(); i++) {
-			d.get(i).roll();
+	public void groupRoll() { // roll all selected dice
+		for (int i = 0; i < DiceGroup.size(); i++) {
+			DiceGroup.get(i).roll();
 		}
 	}
 

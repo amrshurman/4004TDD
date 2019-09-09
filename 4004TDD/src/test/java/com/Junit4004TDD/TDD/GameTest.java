@@ -35,6 +35,7 @@ public class GameTest extends TestCase{ //should print score sheet properly
  }
  public void testShowDice() {
 	 DiceGroup dg = new DiceGroup();
+	 dg.groupRoll();
 	 dg.printDice();
 	 assertEquals(0,0);
  }
