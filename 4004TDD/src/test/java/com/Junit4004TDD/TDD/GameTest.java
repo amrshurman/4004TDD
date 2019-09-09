@@ -33,10 +33,16 @@ public class GameTest extends TestCase{ //should print score sheet properly
 	 ss.print();
 	 assertEquals(0,0);
  }
- public void testShowDice() {
+ public void testShowDice() { //print the dice that player currently has
 	 DiceGroup dg = new DiceGroup();
 	 dg.groupRoll();
 	 dg.printDice();
+	 assertEquals(0,0);
+ }
+ public void testPickDice() { //you should be able to pick the dice that you want and reroll the rest 
+	 DiceGroup dg = new DiceGroup();
+	 dg.groupRoll();
+	 dg.pickDice();
 	 assertEquals(0,0);
  }
 }
