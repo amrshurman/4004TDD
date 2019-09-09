@@ -14,7 +14,7 @@ public class DiceTest extends TestCase{
 	public void testGroupRoll() { //tests whether multiple rolls can be done at once. Also tests the "total number for the Dice Group" functionality
 		DiceGroup dg = new DiceGroup();
 		int i = 0;
-		dg.groupRoll(dg.DiceGroup);
+		dg.groupRoll();
 		i=dg.getTotal(dg.DiceGroup);
 		assertNotEquals(i,0);
 	}

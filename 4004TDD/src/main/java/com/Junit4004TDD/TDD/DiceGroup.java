@@ -25,6 +25,12 @@ public class DiceGroup { // class for GROUP of dice
 		}
 		return t;
 	}
+	
+	public void printDice() {
+		for (int i = 0; i < DiceGroup.size(); i++) {
+			System.out.println("Dice ("+(i+1)+"): " +DiceGroup.get(i).getNumber());
+		}
+	}
 
 	public ArrayList<Dice> upperAddition(ArrayList<Dice> d) { // adds the upper addition part of the score sheet
 		ArrayList<Dice> fd = new ArrayList<Dice>();
