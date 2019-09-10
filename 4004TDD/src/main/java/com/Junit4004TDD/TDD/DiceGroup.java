@@ -1,6 +1,7 @@
 package com.Junit4004TDD.TDD;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DiceGroup { // class for GROUP of dice
 	ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
@@ -27,9 +28,12 @@ public class DiceGroup { // class for GROUP of dice
 	}
 	
 	public void printDice() {
+		System.out.println("-----------------------------------------------");
+		System.out.println("Current Dice numbers:");
 		for (int i = 0; i < DiceGroup.size(); i++) {
 			System.out.println("Dice ("+(i+1)+"): " +DiceGroup.get(i).getNumber());
 		}
+		System.out.println("-----------------------------------------------");
 	}
 
 	public ArrayList<Dice> upperAddition(ArrayList<Dice> d) { // adds the upper addition part of the score sheet
@@ -79,12 +83,13 @@ public class DiceGroup { // class for GROUP of dice
 			ArrayList<Dice> tempd = new ArrayList<Dice>();
 			Dice td = new Dice();
 			if (d.get(i).getNumber() < 4) {
+					count=0;
 				td = d.get(i);
 				tempd.add(td);
 				count++;
 				for (int z = 0; z < d.size(); z++) {
 					for (int j = 0; j < d.size(); j++) {
-						if (td.getNumber() == d.get(j).getNumber() - 1) {
+						if (td.getNumber() == (d.get(j).getNumber() - 1)) {
 							td = d.get(j);
 							tempd.add(td);
 							count++;
@@ -92,11 +97,11 @@ public class DiceGroup { // class for GROUP of dice
 					}
 				}
 			}
-			if (fd.size() <= tempd.size()) {
+			if (fd.size() < tempd.size()) {
 				fd = tempd;
 			}
 		}
-		if (count > 3) {
+		if (fd.size() > 3) {
 			return fd;
 		} else
 			return empty;
@@ -116,7 +121,7 @@ public class DiceGroup { // class for GROUP of dice
 				}
 			}
 			if (count == 3) { // if we find any group of duplicated numbers then we add to list
-				fd.add(d.get(i));
+				fd.add(d.get(i));fd.add(d.get(i));fd.add(d.get(i));
 				for (int k = 0; k < d.size(); k++) {
 					if (target != d.get(k).getNumber()) {
 						fd2.add(d.get(k));
@@ -132,7 +137,7 @@ public class DiceGroup { // class for GROUP of dice
 		}
 		return empty;
 	}
-	public void pickDice() {
+	public void pickDice(ScoreSheet ss) {
 		boolean ua=false;
 		boolean threeK=false;
 		boolean fourK=false;
@@ -141,7 +146,7 @@ public class DiceGroup { // class for GROUP of dice
 		boolean fh=false;
 		if (upperAddition(DiceGroup).size()>0) {
 			ua=true;
-			System.out.print("This group of dice has duplicates of: ");
+			System.out.print("This group of dice has duplicates from the group: ");
 			for (int i=0;i<upperAddition(DiceGroup).size();i++) {
 				System.out.print(upperAddition(DiceGroup).get(i).getNumber() + " ");
 			}
@@ -166,16 +171,16 @@ public class DiceGroup { // class for GROUP of dice
 		if (sequence(DiceGroup).size()==4) {
 			sseq=true;
 			System.out.print("This group has a small sequence with the numbers: ");
-			for (int i=0;i<OfKind(DiceGroup).size();i++) {
-				System.out.print(OfKind(DiceGroup).get(i).getNumber() + " ");
+			for (int i=0;i<sequence(DiceGroup).size();i++) {
+				System.out.print(sequence(DiceGroup).get(i).getNumber() + " ");
 			}
 			System.out.println();
 		}
 		if (sequence(DiceGroup).size()==5) {
 			lseq=true;
 			System.out.print("This group has a long sequence with the numbers: ");
-			for (int i=0;i<OfKind(DiceGroup).size();i++) {
-				System.out.print(OfKind(DiceGroup).get(i).getNumber() + " ");
+			for (int i=0;i<sequence(DiceGroup).size();i++) {
+				System.out.print(sequence(DiceGroup).get(i).getNumber() + " ");
 			}
 			System.out.println();
 		}
@@ -187,8 +192,19 @@ public class DiceGroup { // class for GROUP of dice
 			}
 			System.out.println();
 		}
+		System.out.println("-----------------------------------------------------------------------------------------------------");
+		System.out.println("Type (a1) to scratch aces value. Type (a2) to scratch twos value. Type (a3) to scratch threes value.");
+		System.out.println("Type (a4) to scratch fours value. Type (a5) to scratch fives value. Type (a6) to scratch sixes value.");
+		System.out.println("Type (3k) to scratch 3 of a kind value. Type (4k) to scratch 4 of a kind value. Type (ss) to scratch");
+		System.out.println("small straight value. Type (ls) to scratch long straight value. Type (y) to scratch YAHTZEE value.");
+		System.out.println("Type (c) to scratch chance value. Type (r) to reroll (if capable).");
+		System.out.println("-----------------------------------------------------------------------------------------------------");
+		Scanner s = new Scanner(System.in);
+		String choice = s.nextLine();
 		if (ua==true) {
-		//	System.out.println("Type (a)");
+			if (s.equals("a1")) {
+			
+			}
 		}
 	}
 }
