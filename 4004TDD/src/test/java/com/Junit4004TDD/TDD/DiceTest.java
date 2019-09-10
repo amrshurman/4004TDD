@@ -27,7 +27,7 @@ public class DiceTest extends TestCase{
 		 assertEquals(0,0);
 	 }
 	 
-	 public void testSoreSheet2() { //should print Upper Section correctly with bonus for p1
+	 public void testScoreSheet2() { //should print Upper Section correctly with bonus for p1
 		 Player p1 = new Player("p1");
 		 Player p2 = new Player("p2");
 		 Player p3 = new Player("p3");
@@ -38,7 +38,7 @@ public class DiceTest extends TestCase{
 		 assertEquals(0,0);
 	 }
 	 
-	 public void testSoreSheet3() { //should print Upper Section correctly with NO bonus for p1
+	 public void testScoreSheet3() { //should print Upper Section correctly with NO bonus for p1
 		 Player p1 = new Player("p1");
 		 Player p2 = new Player("p2");
 		 Player p3 = new Player("p3");
@@ -53,5 +53,15 @@ public class DiceTest extends TestCase{
 		 dg.groupRoll();
 		 dg.printDice();
 		 assertEquals(0,0);
+	 }
+	 public void testSheetNoChange() { //score sheet values cannot be changed 
+		 Player p1 = new Player("p1");
+		 Player p2 = new Player("p2");
+		 Player p3 = new Player("p3");
+		 p1.set(1,10);
+		 p1.set(1,50);
+		 ScoreSheet ss = new ScoreSheet(p1,p2,p3);
+		 ss.print();
+		 assertEquals(p1.aces,10);
 	 }
 }
