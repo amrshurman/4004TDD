@@ -72,6 +72,7 @@ public class DiceGroup { // class for GROUP of dice
 	}
 
 	public ArrayList<Dice> sequence(ArrayList<Dice> d) {
+		ArrayList<Dice> empty = new ArrayList<Dice>();
 		ArrayList<Dice> fd = new ArrayList<Dice>();
 		int count = 0;
 		for (int i = 0; i < d.size(); i++) {
@@ -98,10 +99,11 @@ public class DiceGroup { // class for GROUP of dice
 		if (count > 3) {
 			return fd;
 		} else
-			return null;
+			return empty;
 	}
 
 	public ArrayList<Dice> fullHouse(ArrayList<Dice> d) {
+		ArrayList<Dice> empty = new ArrayList<Dice>();
 		ArrayList<Dice> fd = new ArrayList<Dice>();
 		ArrayList<Dice> fd2 = new ArrayList<Dice>();
 		for (int i = 0; i < d.size(); i++) {
@@ -123,10 +125,70 @@ public class DiceGroup { // class for GROUP of dice
 				if (fd2.size()==2) {
 					if (fd2.get(0).getNumber()==fd2.get(1).getNumber()) {
 						fd.add(fd2.get(0));fd.add(fd2.get(1));
+						return fd;
 					}
 				}
 			}
 		}
-		return fd;
+		return empty;
+	}
+	public void pickDice() {
+		boolean ua=false;
+		boolean threeK=false;
+		boolean fourK=false;
+		boolean sseq=false;
+		boolean lseq=false;
+		boolean fh=false;
+		if (upperAddition(DiceGroup).size()>0) {
+			ua=true;
+			System.out.print("This group of dice has duplicates of: ");
+			for (int i=0;i<upperAddition(DiceGroup).size();i++) {
+				System.out.print(upperAddition(DiceGroup).get(i).getNumber() + " ");
+			}
+			System.out.println();
+		}
+		if (OfKind(DiceGroup).size()==3) {
+			threeK=true;
+			System.out.print("This group has a 3 of a kind: ");
+			for (int i=0;i<OfKind(DiceGroup).size();i++) {
+				System.out.print(OfKind(DiceGroup).get(i).getNumber() + " ");
+			}
+			System.out.println();
+		}
+		if (OfKind(DiceGroup).size()==4) {
+			fourK=true;
+			System.out.print("This group has a 4 of a kind: ");
+			for (int i=0;i<OfKind(DiceGroup).size();i++) {
+				System.out.print(OfKind(DiceGroup).get(i).getNumber() + " ");
+			}
+			System.out.println();
+		}
+		if (sequence(DiceGroup).size()==4) {
+			sseq=true;
+			System.out.print("This group has a small sequence with the numbers: ");
+			for (int i=0;i<OfKind(DiceGroup).size();i++) {
+				System.out.print(OfKind(DiceGroup).get(i).getNumber() + " ");
+			}
+			System.out.println();
+		}
+		if (sequence(DiceGroup).size()==5) {
+			lseq=true;
+			System.out.print("This group has a long sequence with the numbers: ");
+			for (int i=0;i<OfKind(DiceGroup).size();i++) {
+				System.out.print(OfKind(DiceGroup).get(i).getNumber() + " ");
+			}
+			System.out.println();
+		}
+		if (fullHouse(DiceGroup).size()>0) {
+			fh=true;
+			System.out.print("This group has a full house with the numbers: ");
+			for (int i=0;i<fullHouse(DiceGroup).size();i++) {
+				System.out.print(fullHouse(DiceGroup).get(i).getNumber() + " ");
+			}
+			System.out.println();
+		}
+		if (ua==true) {
+		//	System.out.println("Type (a)");
+		}
 	}
 }
