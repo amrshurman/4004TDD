@@ -203,8 +203,23 @@ public class DiceGroup { // class for GROUP of dice
 		String choice = s.nextLine();
 		if (ua==true) {
 			if (s.equals("a1")) {
-			
+			sumUS(1);
 			}
+			if (s.equals("a2")) {
+				sumUS(2);
+				}
+			if (s.equals("a3")) {
+				sumUS(3);
+				}
+				if (s.equals("a4")) {
+					sumUS(4);
+					}
+				if (s.equals("a5")) {
+					sumUS(5);
+					}
+					if (s.equals("a6")) {
+						sumUS(6);
+						}
 		}
 	}
 	public int sumUS(int x) {
