@@ -26,6 +26,7 @@ public class ScoreSheet {
 		System.out.println("Lower Section");
 		System.out.println(" 3 of a kind  | " + p1.threeOfKind + "   |  " + p2.threeOfKind + "   |  " + p3.threeOfKind);
 		System.out.println(" 4 of a kind  | " + p1.fourOfKind + "   |  " + p2.fourOfKind + "   |  " + p3.fourOfKind);
+		System.out.println("  Full House  | " + p1.fullHouse + "   |  " + p2.fullHouse + "   |  " + p3.fullHouse);
 		System.out.println("Sm. Straight  | " + p1.smStraight + "   |  " + p2.smStraight + "   |  " + p3.smStraight);
 		System.out.println("Lg. Straight  | " + p1.lgStraight + "   |  " + p2.lgStraight + "   |  " + p3.lgStraight);
 		System.out.println("     YAHTZEE  | " + p1.Yahtzee + "   |  " + p2.Yahtzee + "   |  " + p3.Yahtzee);
