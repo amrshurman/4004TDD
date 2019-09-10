@@ -207,4 +207,13 @@ public class DiceGroup { // class for GROUP of dice
 			}
 		}
 	}
+	public int sumUS(int x) {
+		int count=0;
+		for (int i=0;i<DiceGroup.size();i++) {
+			if (DiceGroup.get(i).getNumber()==x) {
+				count+=x;
+			}
+		}
+		return count;
+	}
 }
