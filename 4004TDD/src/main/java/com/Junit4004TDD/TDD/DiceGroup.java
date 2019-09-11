@@ -292,4 +292,59 @@ public class DiceGroup { // class for GROUP of dice
 		}
 		return count;
 	}
+
+	public void rollAndKeep() {
+		boolean one = false;
+		boolean two = false;
+		boolean three = false;
+		boolean four = false;
+		boolean five = false;
+		for (int i = 0; i < DiceGroup.size(); i++) {
+			System.out.println("Type (" + (i + 1) + ") if you want to roll " + DiceGroup.get(i).getNumber());
+		}
+		System.out.println("Type (r) if you want to reroll everything.");
+		while (true) {
+			System.out.println("Type (d) if you are done rolling and keeping.");
+			Scanner s = new Scanner(System.in);
+			String choice = s.nextLine();
+			if (choice.equals("r")) {
+				groupRoll();
+				break;
+			}
+			if (choice.equals("1")) {
+				one = true;
+			}
+			if (choice.equals("2")) {
+				two = true;
+			}
+			if (choice.equals("3")) {
+				three = true;
+			}
+			if (choice.equals("4")) {
+				four = true;
+			}
+			if (choice.equals("5")) {
+				five = true;
+			}
+			if (choice.equals("d")) {
+				break;
+			}
+		}
+		if (one==true) {
+			DiceGroup.get(0).roll();
+		}
+		if (two==true) {
+			DiceGroup.get(1).roll();
+		}
+		if (three==true) {
+			DiceGroup.get(2).roll();
+		}
+		if (four==true) {
+			DiceGroup.get(3).roll();
+		}
+		if (five==true) {
+			DiceGroup.get(4).roll();
+		}
+		printDice();
+	}
 }
