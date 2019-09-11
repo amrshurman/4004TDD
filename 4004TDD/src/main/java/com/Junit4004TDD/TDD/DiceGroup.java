@@ -142,15 +142,22 @@ public class DiceGroup { // class for GROUP of dice
 	}
 
 	public void pickDice(Player p) {
-		boolean ua = false;
 		boolean threeK = false;
 		boolean fourK = false;
 		boolean sseq = false;
 		boolean lseq = false;
 		boolean fh = false;
+		boolean y = false;
 		if (upperAddition(DiceGroup).size() > 0) {
-			ua = true;
 			System.out.print("This group of dice has duplicates from the group: ");
+			for (int i = 0; i < upperAddition(DiceGroup).size(); i++) {
+				System.out.print(upperAddition(DiceGroup).get(i).getNumber() + " ");
+			}
+			System.out.println();
+		}
+		if (upperAddition(DiceGroup).size() == 5) {
+			System.out.print("YAHTZEE! for values: ");
+			y = true;
 			for (int i = 0; i < upperAddition(DiceGroup).size(); i++) {
 				System.out.print(upperAddition(DiceGroup).get(i).getNumber() + " ");
 			}
@@ -203,33 +210,76 @@ public class DiceGroup { // class for GROUP of dice
 		System.out.println(
 				"Type (a4) to scratch fours value. Type (a5) to scratch fives value. Type (a6) to scratch sixes value.");
 		System.out.println(
-				"Type (3k) to scratch 3 of a kind value. Type (4k) to scratch 4 of a kind value. Type (ss) to scratch");
+				"Type (3k) to scratch 3 of a kind value. Type (4k) to scratch 4 of a kind value. Type (fh) to scratch");
 		System.out.println(
-				"small straight value. Type (ls) to scratch long straight value. Type (y) to scratch YAHTZEE value.");
-		System.out.println("Type (c) to scratch chance value. Type (r) to reroll (if capable).");
+				"Full House value. Type (ss) to scratch small straight value. Type (ls) to scratch long straight value.");
+		System.out.println("Type (y) to scratch YAHTZEE value. Type (c) to scratch chance value.");
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
 		Scanner s = new Scanner(System.in);
 		String choice = s.nextLine();
-		if (ua == true) {
-			if (s.equals("a1")) {
-				sumUS(1);
+		if (choice.equals("a1")) {
+			p.set(1, sumUS(1));
+		}
+		if (choice.equals("a2")) {
+			p.set(2, sumUS(2));
+		}
+		if (choice.equals("a3")) {
+			p.set(3, sumUS(3));
+		}
+		if (choice.equals("a4")) {
+			p.set(4, sumUS(4));
+		}
+		if (choice.equals("a5")) {
+			p.set(5, sumUS(5));
+		}
+		if (choice.equals("a6")) {
+			p.set(6, sumUS(6));
+		}
+		if (choice.equals("3K")) {
+			if (threeK == true) {
+				p.set(7, p.dg.getTotal(DiceGroup));
+			} else {
+				p.set(7, 0);
 			}
-			if (s.equals("a2")) {
-				sumUS(2);
+		}
+		if (choice.equals("4K")) {
+			if (fourK == true) {
+				p.set(8, p.dg.getTotal(DiceGroup));
+			} else {
+				p.set(8, 0);
 			}
-			if (s.equals("a3")) {
-				sumUS(3);
+		}
+		if (choice.equals("fh")) {
+			if (fh == true) {
+				p.set(9, 25);
+			} else {
+				p.set(9, 0);
 			}
-			if (s.equals("a4")) {
-				sumUS(4);
+		}
+		if (choice.equals("ss")) {
+			if (sseq == true) {
+				p.set(10, 30);
+			} else {
+				p.set(10, 0);
 			}
-			if (s.equals("a5")) {
-				sumUS(5);
+		}
+		if (choice.equals("ls")) {
+			if (lseq == true) {
+				p.set(11, 40);
+			} else {
+				p.set(11, 0);
 			}
-			if (s.equals("a6")) {
-				sumUS(6);
+		}
+		if (choice.equals("y")) {
+			if (y == true) {
+				p.set(12, 50);
+			} else {
+				p.set(12, 0);
 			}
+		}
+		if (choice.equals("c")) {
+			p.set(13, p.dg.getTotal(DiceGroup));
 		}
 	}
 
