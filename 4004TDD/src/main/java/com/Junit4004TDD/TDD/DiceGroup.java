@@ -36,26 +36,6 @@ public class DiceGroup { // class for GROUP of dice
 		System.out.println("-----------------------------------------------");
 	}
 
-	public ArrayList<Dice> upperAddition(ArrayList<Dice> d) { // adds the upper addition part of the score sheet
-		ArrayList<Dice> fd = new ArrayList<Dice>();
-
-		for (int i = 0; i < d.size(); i++) {
-			int count = 0;
-			int target = 0;
-			target = d.get(i).getNumber();
-			for (int j = 0; j < d.size(); j++) {
-				if (target == d.get(j).getNumber()) {
-					count++;
-				}
-			}
-			if (count > 1) { // if we find any group of duplicated numbers then we add to list of upper
-								// addition group
-				fd.add(d.get(i));
-			}
-		}
-		return fd;
-	}
-
 	public ArrayList<Dice> OfKind(ArrayList<Dice> d) {
 		ArrayList<Dice> fd = new ArrayList<Dice>();
 		for (int i = 0; i < d.size(); i++) {
@@ -148,18 +128,13 @@ public class DiceGroup { // class for GROUP of dice
 		boolean lseq = false;
 		boolean fh = false;
 		boolean y = false;
-		if (upperAddition(DiceGroup).size() > 0) {
-			System.out.print("This group of dice has duplicates from the group: ");
-			for (int i = 0; i < upperAddition(DiceGroup).size(); i++) {
-				System.out.print(upperAddition(DiceGroup).get(i).getNumber() + " ");
-			}
-			System.out.println();
-		}
-		if (upperAddition(DiceGroup).size() == 5) {
+		System.out.println("Suggestions for the lower section of the score sheet: ");
+		
+		if (OfKind(DiceGroup).size() == 5) {
 			System.out.print("YAHTZEE! for values: ");
 			y = true;
-			for (int i = 0; i < upperAddition(DiceGroup).size(); i++) {
-				System.out.print(upperAddition(DiceGroup).get(i).getNumber() + " ");
+			for (int i = 0; i < OfKind(DiceGroup).size(); i++) {
+				System.out.print(OfKind(DiceGroup).get(i).getNumber() + " ");
 			}
 			System.out.println();
 		}
@@ -304,7 +279,7 @@ public class DiceGroup { // class for GROUP of dice
 		}
 		System.out.println("Type (r) if you want to reroll everything.");
 		while (true) {
-			System.out.println("Type (d) if you are done rolling and keeping.");
+			System.out.println("Type (d) if you are done rolling.");
 			Scanner s = new Scanner(System.in);
 			String choice = s.nextLine();
 			if (choice.equals("r")) {

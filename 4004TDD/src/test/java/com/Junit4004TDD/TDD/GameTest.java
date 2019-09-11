@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 public class GameTest extends TestCase{ //should print score sheet properly
- public void testPickDice() { //you should be able to get a small straight and an upper addition of two
+ public void testPickDice() {//you should be able to score a small straight if you wanted, should be able to add any number that exists. We score 4 if we add 2
 	 System.out.println("----------------------------------------");
 	 DiceGroup dg = new DiceGroup();
 	 Player p1=new Player("p1");Player p2=new Player("p2");Player p3=new Player("p3");
@@ -17,6 +17,7 @@ public class GameTest extends TestCase{ //should print score sheet properly
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		dg.DiceGroup=DiceGroup;
+		dg.printDice();
 	 dg.pickDice(p1);
 	 ScoreSheet ss = new ScoreSheet(p1,p2,p3);
 	 ss.print();

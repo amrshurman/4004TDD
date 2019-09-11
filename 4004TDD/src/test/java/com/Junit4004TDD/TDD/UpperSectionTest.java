@@ -6,48 +6,30 @@ import junit.framework.TestCase;
 
 public class UpperSectionTest extends TestCase{
 
-	public void testCheckUpperAddition() { //should take two 2's and disregard the 3
+	public void testCheckUpperAddition() { //should take two 2's and disregard the 3 and have 4 as the score for twos
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
+		Player p1=new Player("p1");
 		d1.setNumber(2); d2.setNumber(2); d3.setNumber(3);
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);
-		DiceGroup dc= new DiceGroup();
-		ArrayList<Dice> NewDiceGroup= dc.upperAddition(DiceGroup);
-		System.out.println(NewDiceGroup.get(1).getNumber());
-		System.out.println("Size: " + NewDiceGroup.size());
-		assertEquals(NewDiceGroup.get(0).getNumber(),2);
-		assertEquals(NewDiceGroup.size(),2);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.set(2, p1.dg.sumUS(2));
+		assertEquals(p1.twos,4);
 	}
 	
-	public void testCheckUpperAddition2() { //should take two 2's and three 3's
+	public void testCheckUpperAddition2() { //should take twos and 2 value
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
-		Dice d4 = new Dice();
-		Dice d5 = new Dice();
-		d1.setNumber(2); d2.setNumber(2); d3.setNumber(3); d4.setNumber(3); d5.setNumber(3);
+		Player p1=new Player("p1");
+		d1.setNumber(2); d2.setNumber(6); d3.setNumber(3);
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
-		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
-		DiceGroup dc= new DiceGroup();
-		ArrayList<Dice> NewDiceGroup= dc.upperAddition(DiceGroup);
-		System.out.println("Size: " + NewDiceGroup.size());
-		assertEquals(NewDiceGroup.size(),5); //size of group should be 5
-		assertEquals(NewDiceGroup.get(4).getNumber(),3);
-	}
-	
-	public void testCheckUpperAddition3() { //should take nothing
-		Dice d1 = new Dice();
-		Dice d2 = new Dice();
-		
-		d1.setNumber(2); d2.setNumber(3);
-		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
-		DiceGroup.add(d1);DiceGroup.add(d2);
-		DiceGroup dc= new DiceGroup();
-		ArrayList<Dice> NewDiceGroup= dc.upperAddition(DiceGroup);
-		System.out.println("Size: " + NewDiceGroup.size());
-		assertEquals(NewDiceGroup.size(),0); //size of group should be 0
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.set(2, p1.dg.sumUS(2));
+		assertEquals(p1.twos,2);
 	}
 	
 	public void testUpperTotal() { //should add both 1's and return 2
