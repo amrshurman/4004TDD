@@ -40,7 +40,7 @@ public class DiceTest extends TestCase {
 		p1.fives = 55;
 		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
 		ss.print();
-		assertEquals(0, 0);
+		assertEquals(p1.Bonus, 35);
 	}
 
 	public void testScoreSheet3() { // should print Upper Section correctly with NO bonus for p1
@@ -51,7 +51,7 @@ public class DiceTest extends TestCase {
 		p1.fives = 50;
 		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
 		ss.print();
-		assertEquals(0, 0);
+		assertEquals(p1.Bonus, 0);
 	}
 
 	public void testShowDice() { // print the dice that player currently has
