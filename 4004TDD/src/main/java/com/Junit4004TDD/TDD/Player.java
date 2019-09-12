@@ -161,7 +161,7 @@ public class Player {
 				Yahtzee = j;
 				yahtzeeB = true;
 			} else {
-				System.out.println("Score category cannot be set more than once!");
+				YahtzeeBonus+=100;
 			}
 		}
 		if (i == 13) {
