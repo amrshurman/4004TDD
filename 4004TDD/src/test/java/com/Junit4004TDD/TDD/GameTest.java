@@ -19,6 +19,7 @@ public class GameTest extends TestCase{ //should print score sheet properly
 		dg.DiceGroup=DiceGroup;
 		dg.printDice();
 	 dg.pickDice(p1);
+	 dg.inputChoice(p1);
 	 ScoreSheet ss = new ScoreSheet(p1,p2,p3);
 	 ss.print();
 		assertEquals(0, 0);

@@ -5,7 +5,13 @@ import java.util.Scanner;
 
 public class DiceGroup { // class for GROUP of dice
 	ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
-
+	boolean threeK = false;
+	boolean fourK = false;
+	boolean sseq = false;
+	boolean lseq = false;
+	boolean fh = false;
+	boolean y = false;
+	
 	public DiceGroup() { // initializes the total 5 dice
 		for (int i = 0; i < 5; i++) {
 			Dice d = new Dice();
@@ -122,12 +128,6 @@ public class DiceGroup { // class for GROUP of dice
 	}
 
 	public void pickDice(Player p) {
-		boolean threeK = false;
-		boolean fourK = false;
-		boolean sseq = false;
-		boolean lseq = false;
-		boolean fh = false;
-		boolean y = false;
 		System.out.println("Suggestions for the lower section of the score sheet: ");
 		
 		if (OfKind(DiceGroup).size() == 5) {
@@ -178,6 +178,8 @@ public class DiceGroup { // class for GROUP of dice
 			}
 			System.out.println();
 		}
+	}
+	public void inputChoice(Player p) {
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
 		System.out.println(
@@ -193,6 +195,9 @@ public class DiceGroup { // class for GROUP of dice
 				"-----------------------------------------------------------------------------------------------------");
 		Scanner s = new Scanner(System.in);
 		String choice = s.nextLine();
+		scoreSetter(p,choice);
+	}
+	public void scoreSetter(Player p,String choice) {
 		if (choice.equals("a1")) {
 			p.set(1, sumUS(1));
 		}
@@ -214,6 +219,7 @@ public class DiceGroup { // class for GROUP of dice
 		if (choice.equals("3K")) {
 			if (threeK == true) {
 				p.set(7, p.dg.getTotal(DiceGroup));
+				threeK = false;
 			} else {
 				p.set(7, 0);
 			}
@@ -221,6 +227,7 @@ public class DiceGroup { // class for GROUP of dice
 		if (choice.equals("4K")) {
 			if (fourK == true) {
 				p.set(8, p.dg.getTotal(DiceGroup));
+				fourK = false;
 			} else {
 				p.set(8, 0);
 			}
@@ -228,6 +235,7 @@ public class DiceGroup { // class for GROUP of dice
 		if (choice.equals("fh")) {
 			if (fh == true) {
 				p.set(9, 25);
+				fh = false;
 			} else {
 				p.set(9, 0);
 			}
@@ -235,6 +243,7 @@ public class DiceGroup { // class for GROUP of dice
 		if (choice.equals("ss")) {
 			if (sseq == true) {
 				p.set(10, 30);
+				sseq = false;
 			} else {
 				p.set(10, 0);
 			}
@@ -242,6 +251,7 @@ public class DiceGroup { // class for GROUP of dice
 		if (choice.equals("ls")) {
 			if (lseq == true) {
 				p.set(11, 40);
+				lseq = false;
 			} else {
 				p.set(11, 0);
 			}
@@ -249,6 +259,7 @@ public class DiceGroup { // class for GROUP of dice
 		if (choice.equals("y")) {
 			if (y == true) {
 				p.set(12, 50);
+				y = false;
 			} else {
 				p.set(12, 0);
 			}
