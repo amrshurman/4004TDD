@@ -143,7 +143,7 @@ public class LowerSectionTest extends TestCase{
 		p1.dg.scoreSetter(p1,"4K");
 		assertEquals(p1.fourOfKind,9);
 	}
-	public void testFHScore() { 
+	public void testFHScore() { //full house score
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
@@ -157,5 +157,65 @@ public class LowerSectionTest extends TestCase{
 		p1.dg.pickDice(p1);
 		p1.dg.scoreSetter(p1,"fh");
 		assertEquals(p1.fullHouse,25);
+	}
+	public void testSsScore() { //test for small straight score
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(1); d2.setNumber(2); d3.setNumber(3); d4.setNumber(4);d5.setNumber(2);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"ss");
+		assertEquals(p1.smStraight,30);
+	}
+	public void testLsScore() { //test for long straight score
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(1); d2.setNumber(2); d3.setNumber(3); d4.setNumber(4);d5.setNumber(5);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"ls");
+		assertEquals(p1.lgStraight,40);
+	}
+	public void testYahtzeeScore() { //test for long yahtzee score
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(2); d2.setNumber(2); d3.setNumber(2); d4.setNumber(2);d5.setNumber(2);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"y");
+		assertEquals(p1.Yahtzee,50);
+	}
+	public void testChanceScore() { //test for long chance score
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(1); d2.setNumber(2); d3.setNumber(4); d4.setNumber(6);d5.setNumber(2);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"c");
+		assertEquals(p1.chance,15);
 	}
 }
