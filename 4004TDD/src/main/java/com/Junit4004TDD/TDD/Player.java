@@ -132,14 +132,6 @@ public class Player {
 				System.out.println("Score category cannot be set more than once!");
 			}
 		}
-		if (i == 8) {
-			if (FourKB == false) {
-				fourOfKind = j;
-				FourKB = true;
-			} else {
-				System.out.println("Score category cannot be set more than once!");
-			}
-		}
 		if (i == 9) {
 			if (fullB == false) {
 				fullHouse = j;
