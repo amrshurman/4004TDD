@@ -105,4 +105,94 @@ public class UpperSectionTest extends TestCase{
 		int i=dc.sumUS(2);
 		assertEquals(i,6);
 	}
+	public void testAcesScore() { //test for long chance score
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(1); d2.setNumber(1); d3.setNumber(4); d4.setNumber(6);d5.setNumber(2);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"a1");
+		assertEquals(p1.aces,2);
+	}
+	public void testTwosScore() { //test for long chance score
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(1); d2.setNumber(1); d3.setNumber(2); d4.setNumber(6);d5.setNumber(2);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"a2");
+		assertEquals(p1.twos,4);
+	}
+	public void testThreesScore() { //test for long chance score
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(1); d2.setNumber(3); d3.setNumber(4); d4.setNumber(6);d5.setNumber(2);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"a3");
+		assertEquals(p1.threes,3);
+	}
+	public void testFourScore() { //test for long chance score
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(1); d2.setNumber(3); d3.setNumber(4); d4.setNumber(6);d5.setNumber(2);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"a4");
+		assertEquals(p1.fours,4);
+	}
+	public void testFivesScore() { //test for long chance score
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(1); d2.setNumber(5); d3.setNumber(4); d4.setNumber(6);d5.setNumber(5);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"a5");
+		assertEquals(p1.fives,10);
+	}
+	public void testSixesScore() { //test for long chance score
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(1); d2.setNumber(3); d3.setNumber(6); d4.setNumber(6);d5.setNumber(2);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"a6");
+		assertEquals(p1.sixes,12);
+	}
 }
