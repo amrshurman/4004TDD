@@ -113,7 +113,7 @@ public class LowerSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2); DiceGroup.add(d3); DiceGroup.add(d4); DiceGroup.add(d5); 
 		assertEquals(dg.getTotal(DiceGroup),5); 
 	}
-	public void test3KScore() {
+	public void test3KScore() { //Three of a kind score test
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
@@ -127,5 +127,20 @@ public class LowerSectionTest extends TestCase{
 		p1.dg.pickDice(p1);
 		p1.dg.scoreSetter(p1,"3K");
 		assertEquals(p1.threeOfKind,10);
+	}
+	public void test4KScore() { //four of a kind score test
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		Player p1=new Player("p1");
+		d1.setNumber(1); d2.setNumber(1); d3.setNumber(1); d4.setNumber(1);d5.setNumber(5);
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		p1.dg.DiceGroup=DiceGroup;
+		p1.dg.pickDice(p1);
+		p1.dg.scoreSetter(p1,"4K");
+		assertEquals(p1.threeOfKind,9);
 	}
 }
