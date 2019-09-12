@@ -164,5 +164,13 @@ public class Player {
 				System.out.println("Score category cannot be set more than once!");
 			}
 		}
+		if (i == 13) {
+			if (chanceB == false) {
+				chance = j;
+				chanceB = true;
+			} else {
+				System.out.println("Score category cannot be set more than once!");
+			}
+		}
 	}
 }
