@@ -33,7 +33,15 @@ public class Server {
 			ssocket.close();
 			p1.dg.groupRoll();
 			p1.dg.pickDice(p1);
-			
+			ServerSocket rs = new ServerSocket(6667); // receiving socket
+			Socket s = rs.accept();// establishes connection
+			DataInputStream dis = new DataInputStream(s.getInputStream());
+			String str = (String) dis.readUTF();
+			System.out.println("Recieved output from Player 1: ");
+			p1.dg.scoreSetter(p1,str);
+			 ScoreSheet ss = new ScoreSheet(p1,p2,p3);
+			 ss.print();
+			rs.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}

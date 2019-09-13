@@ -195,6 +195,7 @@ public class DiceGroup { // class for GROUP of dice
 				"-----------------------------------------------------------------------------------------------------");
 		Scanner s = new Scanner(System.in);
 		String choice = s.nextLine();
+		s.close();
 		return choice;
 	}
 	public void scoreSetter(Player p,String choice) {

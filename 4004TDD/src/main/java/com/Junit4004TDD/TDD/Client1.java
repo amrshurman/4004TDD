@@ -16,7 +16,7 @@ public class Client1 {
 			dout.flush();
 			dout.close();
 			ssocket.close();
-			s.close();
+			//s.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -27,6 +27,15 @@ public class Client1 {
 			DataInputStream dis = new DataInputStream(s.getInputStream());
 			String str = (String) dis.readUTF();
 			System.out.println("It's your turn! Player 1: " + str);
+			DiceGroup dg = new DiceGroup();
+			Player p = new Player(str);
+			String choice=dg.inputChoice(p);
+			Socket ssocket = new Socket("localhost", 6667); //sending socket
+			DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
+			dout.writeUTF(choice);
+			dout.flush();
+			dout.close();
+			ssocket.close();
 			rs.close();	
 		} catch (Exception e) {
 			System.out.println(e);
