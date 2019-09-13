@@ -21,12 +21,12 @@ public class Client1 {
 			System.out.println(e);
 		}
 		try {
-			System.out.println("Waiting for turn...");
+			System.out.println("Waiting for your turn...");
 			ServerSocket rs = new ServerSocket(9999); //receiving socket
 			Socket s = rs.accept();// establishes connection
 			DataInputStream dis = new DataInputStream(s.getInputStream());
 			String str = (String) dis.readUTF();
-			System.out.println("It's your turn Player 1: " + str);
+			System.out.println("It's your turn! Player 1: " + str);
 			rs.close();	
 		} catch (Exception e) {
 			System.out.println(e);

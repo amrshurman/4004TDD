@@ -179,7 +179,7 @@ public class DiceGroup { // class for GROUP of dice
 			System.out.println();
 		}
 	}
-	public void inputChoice(Player p) {
+	public String inputChoice(Player p) {
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
 		System.out.println(
@@ -195,7 +195,7 @@ public class DiceGroup { // class for GROUP of dice
 				"-----------------------------------------------------------------------------------------------------");
 		Scanner s = new Scanner(System.in);
 		String choice = s.nextLine();
-		scoreSetter(p,choice);
+		return choice;
 	}
 	public void scoreSetter(Player p,String choice) {
 		if (choice.equals("a1")) {
