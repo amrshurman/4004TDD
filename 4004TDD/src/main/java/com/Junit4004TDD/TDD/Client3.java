@@ -4,11 +4,11 @@ import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-public class Client1 {
+public class Client3 {
 	
 	public static void main(String[] args) throws IOException {
 		try {
-			Socket ssocket = new Socket("localhost", 6666); // sending socket
+			Socket ssocket = new Socket("localhost", 4444); // sending socket
 			DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 			System.out.println("Enter your name and press enter to connect to the server:");
 			Scanner s = new Scanner(System.in);
@@ -21,7 +21,7 @@ public class Client1 {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		ServerSocket rs = new ServerSocket(9999); // receiving socket
+		ServerSocket rs = new ServerSocket(3333); // receiving socket
 		while (true) {
 			try {
 				System.out.println("Waiting for your turn...");
@@ -29,7 +29,7 @@ public class Client1 {
 				Socket s = rs.accept();// establishes connection
 				DataInputStream dis = new DataInputStream(s.getInputStream());
 				String str = (String) dis.readUTF();
-				System.out.println("It's your turn! Player 1: ");
+				System.out.println("It's your turn! Player 3: ");
 				DiceGroup dg = new DiceGroup();
 				Player p = new Player(str);
 				dg.convertString(str);
@@ -56,7 +56,7 @@ public class Client1 {
 						count=2;
 					}
 				}
-				Socket ssocket = new Socket("localhost", 6667); // sending socket
+				Socket ssocket = new Socket("localhost", 3334); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				String d = dg.convertList();
 				choice+=d;

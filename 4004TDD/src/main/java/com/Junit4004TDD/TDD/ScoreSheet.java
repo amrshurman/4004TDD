@@ -12,6 +12,7 @@ public class ScoreSheet {
 	}
 
 	public void print() {
+		System.out.println("FIRST PLACE:");
 		System.out.println("----------------------------------------------------------------------");
 		System.out.println("Upper Section | " + p1.name + "  |  " + p2.name + "  |  " + p3.name);
 		System.out.println("        Aces  | " + p1.aces + "   |  " + p2.aces + "   |  " + p3.aces);
