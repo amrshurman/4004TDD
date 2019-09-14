@@ -55,7 +55,7 @@ public class Player {
 	}
 
 	public int totLS() {
-		TotalLS = threeOfKind + fourOfKind + Yahtzee + smStraight + lgStraight + chance + YahtzeeBonus;
+		TotalLS = threeOfKind + fourOfKind + Yahtzee + smStraight + lgStraight + chance + YahtzeeBonus + fullHouse;
 		return TotalLS;
 	}
 

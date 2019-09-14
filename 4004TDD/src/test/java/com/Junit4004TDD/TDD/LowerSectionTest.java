@@ -124,7 +124,7 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
-		p1.dg.pickDice(p1);
+		p1.dg.suggestions(p1);
 		p1.dg.scoreSetter(p1,"3K");
 		assertEquals(p1.threeOfKind,10);
 	}
@@ -139,7 +139,7 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
-		p1.dg.pickDice(p1);
+		p1.dg.suggestions(p1);
 		p1.dg.scoreSetter(p1,"4K");
 		assertEquals(p1.fourOfKind,9);
 	}
@@ -154,7 +154,7 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
-		p1.dg.pickDice(p1);
+		p1.dg.suggestions(p1);
 		p1.dg.scoreSetter(p1,"fh");
 		assertEquals(p1.fullHouse,25);
 	}
@@ -169,7 +169,7 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
-		p1.dg.pickDice(p1);
+		p1.dg.suggestions(p1);
 		p1.dg.scoreSetter(p1,"ss");
 		assertEquals(p1.smStraight,30);
 	}
@@ -184,7 +184,7 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
-		p1.dg.pickDice(p1);
+		p1.dg.suggestions(p1);
 		p1.dg.scoreSetter(p1,"ls");
 		assertEquals(p1.lgStraight,40);
 	}
@@ -199,7 +199,7 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
-		p1.dg.pickDice(p1);
+		p1.dg.suggestions(p1);
 		p1.dg.scoreSetter(p1,"y");
 		assertEquals(p1.Yahtzee,50);
 	}
@@ -216,7 +216,7 @@ public class LowerSectionTest extends TestCase{
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.pickDice(p1);
 		p1.dg.scoreSetter(p1,"y");
-		p1.dg.pickDice(p1); //score another yahtzee with same dice
+		p1.dg.suggestions(p1); //score another yahtzee with same dice
 		p1.dg.scoreSetter(p1,"y");
 		assertEquals(p1.YahtzeeBonus,100);
 	}
@@ -231,13 +231,13 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
-		p1.dg.pickDice(p1);
+		p1.dg.suggestions(p1);
 		p1.dg.scoreSetter(p1,"y");
-		p1.dg.pickDice(p1); //score another yahtzee with same dice
+		p1.dg.suggestions(p1); //score another yahtzee with same dice
 		p1.dg.scoreSetter(p1,"y");
-		p1.dg.pickDice(p1); //score another yahtzee with same dice
+		p1.dg.suggestions(p1); //score another yahtzee with same dice
 		p1.dg.scoreSetter(p1,"y");
-		p1.dg.pickDice(p1); //score another yahtzee with same dice
+		p1.dg.suggestions(p1); //score another yahtzee with same dice
 		p1.dg.scoreSetter(p1,"y");
 		assertEquals(p1.YahtzeeBonus,300);
 	}
@@ -252,7 +252,7 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
-		p1.dg.pickDice(p1);
+		p1.dg.suggestions(p1);
 		p1.dg.scoreSetter(p1,"c");
 		assertEquals(p1.chance,15);
 	}

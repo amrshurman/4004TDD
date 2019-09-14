@@ -20,44 +20,51 @@ public class Client1 {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		try {
-			System.out.println("Waiting for your turn...");
-			ServerSocket rs = new ServerSocket(9999); // receiving socket
-			Socket s = rs.accept();// establishes connection
-			DataInputStream dis = new DataInputStream(s.getInputStream());
-			String str = (String) dis.readUTF();
-			System.out.println("It's your turn! Player 1: ");
-			DiceGroup dg = new DiceGroup();
-			Player p = new Player(str);
-			dg.convertString(str);
-			int count = 2;
-			Scanner s1 = new Scanner(System.in);
-			String o = "";
-			String choice = "";
-			while (!o.equals("s")) {
-				System.out
-						.println("Type (r) to reroll some dice. (" + count + " tries left.) Type (s) to enter a score");
-				o = s1.nextLine();
-				if (o.equals("r")) {
-					if (count > 0) {
-						dg.rollAndKeep();
-						count--;
-					} else {
-						System.out.println("You cannot reroll because you ran out of any re rolls");
+		//while (true) {
+			try {
+				System.out.println("Waiting for your turn...");
+				ServerSocket rs = new ServerSocket(9999); // receiving socket
+				Socket s = rs.accept();// establishes connection
+				DataInputStream dis = new DataInputStream(s.getInputStream());
+				String str = (String) dis.readUTF();
+				System.out.println("It's your turn! Player 1: ");
+				DiceGroup dg = new DiceGroup();
+				Player p = new Player(str);
+				dg.convertString(str);
+				int count = 2;
+				Scanner s1 = new Scanner(System.in);
+				String o = "";
+				String choice = "";
+				dg.printDice();
+				dg.suggestions(p);
+				while (!o.equals("s")) {
+					System.out.println(
+							"Type (r) to reroll some dice. (" + count + " tries left.) Type (s) to enter a score");
+					o = s1.nextLine();
+					if (o.equals("r")) {
+						if (count > 0) {
+							dg.rollAndKeep();
+							dg.suggestions(p);
+							count--;
+						} else {
+							System.out.println("You cannot reroll because you ran out of any re rolls");
+						}
+					} else if (o.equals("s")) {
+						choice = dg.inputChoice(p);
 					}
-				} else if (o.equals("s")) {
-					choice = dg.inputChoice(p);
 				}
+				Socket ssocket = new Socket("localhost", 6667); // sending socket
+				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
+				String d = dg.convertList();
+				choice+=d;
+				dout.writeUTF(choice);
+				dout.flush();
+				dout.close();
+				ssocket.close();
+				rs.close();
+			} catch (Exception e) {
+				System.out.println(e);
 			}
-			Socket ssocket = new Socket("localhost", 6667); // sending socket
-			DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
-			dout.writeUTF(choice);
-			dout.flush();
-			dout.close();
-			ssocket.close();
-			rs.close();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
+		//}
 	}
 }

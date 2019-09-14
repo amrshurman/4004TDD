@@ -18,7 +18,7 @@ public class GameTest extends TestCase{ //should print score sheet properly
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		dg.DiceGroup=DiceGroup;
 		dg.printDice();
-	 dg.pickDice(p1);
+	 dg.suggestions(p1);
 	 String choice = dg.inputChoice(p1);
 	 dg.scoreSetter(p1,choice);
 	 ScoreSheet ss = new ScoreSheet(p1,p2,p3);

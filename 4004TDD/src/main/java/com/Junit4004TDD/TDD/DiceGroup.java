@@ -126,8 +126,28 @@ public class DiceGroup { // class for GROUP of dice
 		}
 		return empty;
 	}
-
 	public void pickDice(Player p) {
+
+		if (OfKind(DiceGroup).size() == 5) {
+			System.out.print("YAHTZEE! for values: ");
+		}
+		if (OfKind(DiceGroup).size() == 3) {
+			threeK = true;
+		}
+		if (OfKind(DiceGroup).size() == 4) {
+			fourK = true;
+		}
+		if (sequence(DiceGroup).size() == 4) {
+			sseq = true;
+		}
+		if (sequence(DiceGroup).size() == 5) {
+			lseq = true;
+		}
+		if (fullHouse(DiceGroup).size() > 0) {
+			fh = true;
+		}
+	}
+	public void suggestions(Player p) {
 		System.out.println("Suggestions for the lower section of the score sheet: ");
 		
 		if (OfKind(DiceGroup).size() == 5) {
@@ -336,7 +356,7 @@ public class DiceGroup { // class for GROUP of dice
 	}
 	public String convertList() {
 		String s="";
-		for (int i=0;i<DiceGroup.size();i++) {System.out.println(DiceGroup.get(i).getNumber());
+		for (int i=0;i<DiceGroup.size();i++) {
 			s+=DiceGroup.get(i).getNumber();
 		}
 		return s;
