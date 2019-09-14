@@ -334,4 +334,16 @@ public class DiceGroup { // class for GROUP of dice
 		}
 		printDice();
 	}
+	public String convertList() {
+		String s="";
+		for (int i=0;i<DiceGroup.size();i++) {System.out.println(DiceGroup.get(i).getNumber());
+			s+=DiceGroup.get(i).getNumber();
+		}
+		return s;
+	}
+	public void convertString(String s) {
+		for (int i=0;i<DiceGroup.size();i++) {
+			DiceGroup.get(i).setNumber(Character.getNumericValue(s.charAt(i)));
+		}
+	}
 }
