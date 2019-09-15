@@ -1,18 +1,27 @@
 package com.Junit4004TDD.TDD;
 
-public class ScoreSheet {
+import java.io.Serializable;
+
+public class ScoreSheet implements Serializable{
 	public Player p1;
 	public Player p2;
 	public Player p3;
-
+	int round = 0;
+	public int g1=0;
+	public int g2=0;
+	public int g3=0;
 	public ScoreSheet(Player p1, Player p2, Player p3) {
 		this.p1 = p1;
 		this.p2 = p2;
 		this.p3 = p3;
 	}
-
+	
+	public void roundDone(int i) {
+		System.out.println("Round " + i + " Complete!");
+			round=i;
+	}
+	
 	public void print() {
-		System.out.println("FIRST PLACE:");
 		System.out.println("----------------------------------------------------------------------");
 		System.out.println("Upper Section | " + p1.name + "  |  " + p2.name + "  |  " + p3.name);
 		System.out.println("        Aces  | " + p1.aces + "   |  " + p2.aces + "   |  " + p3.aces);
@@ -39,7 +48,6 @@ public class ScoreSheet {
 		System.out.println("---------------------------------");
 		System.out.println(
 				"Grand Total   | " + p1.GrandTotal() + "   |  " + p2.GrandTotal() + "   |  " + p3.GrandTotal());
-
 	}
 
 }

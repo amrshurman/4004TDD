@@ -9,6 +9,8 @@ public class Server {
 		Player p1 = new Player("null");
 		Player p2 = new Player("null");
 		Player p3 = new Player("null");
+		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
+		int round=1;
 		try {
 			System.out.println("Waiting for Player 1 to connect with the server...");
 			ServerSocket rs = new ServerSocket(6666); // receiving socket
@@ -35,7 +37,7 @@ public class Server {
 			p3 = new Player(str);
 			
 			rs.close();
-			// count++;
+			ss= new ScoreSheet(p1,p2,p3);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -45,8 +47,8 @@ public class Server {
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				System.out.println("Notifying player 1 to start:");
 				p1.dg.groupRoll();
-				String sL = p1.dg.convertList();
-				dout.writeUTF(sL);
+				 ObjectOutputStream os=new ObjectOutputStream(ssocket.getOutputStream());
+				os.writeObject(ss);
 				dout.flush();
 				dout.close();
 				ssocket.close();
@@ -60,8 +62,7 @@ public class Server {
 				p1.dg.convertString(d);
 				p1.dg.pickDice(p1);
 				p1.dg.scoreSetter(p1, choice);
-				ScoreSheet ss = new ScoreSheet(p1, p2, p3);
-				ss.print();
+				ss = new ScoreSheet(p1, p2, p3);
 				rs.close();
 			} catch (Exception e) {
 				System.out.println(e);
@@ -72,8 +73,8 @@ public class Server {
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				System.out.println("Notifying player 2 to start:");
 				p2.dg.groupRoll();
-				String sL = p2.dg.convertList();
-				dout.writeUTF(sL);
+				 ObjectOutputStream os=new ObjectOutputStream(ssocket.getOutputStream());
+					os.writeObject(ss);
 				dout.flush();
 				dout.close();
 				ssocket.close();
@@ -87,8 +88,7 @@ public class Server {
 				p2.dg.convertString(d);
 				p2.dg.pickDice(p2);
 				p2.dg.scoreSetter(p2, choice);
-				ScoreSheet ss = new ScoreSheet(p1, p2, p3);
-				ss.print();
+				ss = new ScoreSheet(p1, p2, p3);
 				rs.close();
 			} catch (Exception e) {
 				System.out.println(e);
@@ -98,9 +98,9 @@ public class Server {
 				Socket ssocket = new Socket("localhost", 3333); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				System.out.println("Notifying player 3 to start:");
-				p2.dg.groupRoll();
-				String sL = p3.dg.convertList();
-				dout.writeUTF(sL);
+				p3.dg.groupRoll();
+				 ObjectOutputStream os=new ObjectOutputStream(ssocket.getOutputStream());
+					os.writeObject(ss);
 				dout.flush();
 				dout.close();
 				ssocket.close();
@@ -110,16 +110,17 @@ public class Server {
 				String str = (String) dis.readUTF();
 				String choice = String.valueOf(str.charAt(0))+String.valueOf(str.charAt(1));
 				String d = String.valueOf(str.charAt(2))+String.valueOf(str.charAt(3))+String.valueOf(str.charAt(4))+String.valueOf(str.charAt(5))+String.valueOf(str.charAt(6));
-				System.out.println("Recieved output from Player 2: ");
+				System.out.println("Recieved output from Player 3: ");
 				p3.dg.convertString(d);
 				p3.dg.pickDice(p3);
 				p3.dg.scoreSetter(p3, choice);
-				ScoreSheet ss = new ScoreSheet(p1, p2, p3);
-				ss.print();
+				ss = new ScoreSheet(p1, p2, p3);
 				rs.close();
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+			ss.roundDone(round);
+			round++;
 		}
 	}
 }

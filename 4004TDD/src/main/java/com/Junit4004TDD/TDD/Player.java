@@ -1,6 +1,8 @@
 package com.Junit4004TDD.TDD;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable{
 	public String name;
 	public int aces = 0;
 	public int twos = 0;

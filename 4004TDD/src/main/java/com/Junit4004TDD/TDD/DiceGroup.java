@@ -1,9 +1,10 @@
 package com.Junit4004TDD.TDD;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DiceGroup { // class for GROUP of dice
+public class DiceGroup implements Serializable{ // class for GROUP of dice
 	ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 	boolean threeK = false;
 	boolean fourK = false;

@@ -1,8 +1,9 @@
 package com.Junit4004TDD.TDD;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Dice { //class for INDIVIDUAL die
+public class Dice implements Serializable{ //class for INDIVIDUAL die
 private int number=0;
 	
 	public int roll() { //rolls an individual die

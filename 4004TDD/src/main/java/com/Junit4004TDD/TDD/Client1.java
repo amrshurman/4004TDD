@@ -25,14 +25,14 @@ public class Client1 {
 		while (true) {
 			try {
 				System.out.println("Waiting for your turn...");
-			//	ServerSocket rs = new ServerSocket(9999); // receiving socket
 				Socket s = rs.accept();// establishes connection
-				DataInputStream dis = new DataInputStream(s.getInputStream());
-				String str = (String) dis.readUTF();
 				System.out.println("It's your turn! Player 1: ");
+				 ObjectInputStream is=new ObjectInputStream(s.getInputStream());
+			     ScoreSheet ss=(ScoreSheet)is.readObject();
 				DiceGroup dg = new DiceGroup();
-				Player p = new Player(str);
-				dg.convertString(str);
+				Player p = new Player(ss.p1.name);
+				dg=ss.p1.dg;
+			     ss.print();
 				int count = 2;
 				Scanner s1 = new Scanner(System.in);
 				String o = "";
