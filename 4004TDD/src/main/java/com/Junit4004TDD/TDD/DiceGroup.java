@@ -13,12 +13,19 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 	boolean fh = false;
 	boolean y = false;
 
+	boolean onesSet=false;
+	boolean twosSet=false;
+	boolean threesSet=false;
+	boolean foursSet=false;
+	boolean fivesSet=false;
+	boolean sixesSet=false;
 	boolean threeKSet = false;
 	boolean fourKSet = false;
 	boolean sseqSet = false;
 	boolean lseqSet = false;
 	boolean fhSet = false;
 	boolean ySet = false;
+	boolean chanceSet=false;
 	
 	public DiceGroup() { // initializes the total 5 dice
 		for (int i = 0; i < 5; i++) {
@@ -235,24 +242,66 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 
 	public void scoreSetter(Player p, String choice) {
 		if (choice.equals("a1")) {
+			if (onesSet==false) {
 			p.set(1, sumUS(1));
+			onesSet=true;
+			}
+			else {
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}
 		}
 		if (choice.equals("a2")) {
+			if (twosSet==false) {
 			p.set(2, sumUS(2));
+			twosSet=true;
+			}
+			else {
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}
 		}
 		if (choice.equals("a3")) {
+			if (threesSet==false) {
 			p.set(3, sumUS(3));
+			threesSet=true;
+			}
+			else {
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}
 		}
 		if (choice.equals("a4")) {
+			if (foursSet==false) {
 			p.set(4, sumUS(4));
+			foursSet=true;
+			}
+			else {
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}
 		}
 		if (choice.equals("a5")) {
+			if (fivesSet==false) {
 			p.set(5, sumUS(5));
+			fivesSet=true;
+			}
+			else {
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}
 		}
 		if (choice.equals("a6")) {
+			if (sixesSet==false) {
 			p.set(6, sumUS(6));
+			sixesSet=true;
+			}
+			else {
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}
 		}
-		if (choice.equals("3K")) {System.out.println("LOL");
+		if (choice.equals("3K")) {
 			if ((threeK == true)&&(threeKSet==false)) {
 				p.set(7, p.dg.getTotal(DiceGroup));
 				threeK = false;
@@ -266,34 +315,54 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 			}
 		}
 		if (choice.equals("4K")) {
-			if (fourK == true) {
+			if ((fourK == true)&&(fourKSet==false)) {
 				p.set(8, p.dg.getTotal(DiceGroup));
 				fourK = false;
-			} else {
+				fourKSet=true;
+			}
+			else if (fourKSet==true){
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}else {
 				p.set(8, 0);
 			}
 		}
 		if (choice.equals("fh")) {
-			if (fh == true) {
+			if ((fh == true)&&(fhSet==false)) {
 				p.set(9, 25);
 				fh = false;
-			} else {
+				fhSet=true;
+			}
+			else if (fhSet==true){
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}else {
 				p.set(9, 0);
 			}
 		}
 		if (choice.equals("ss")) {
-			if (sseq == true) {
+			if ((sseq == true)&&(sseqSet==false)) {
 				p.set(10, 30);
 				sseq = false;
-			} else {
+				sseqSet=true;
+			} 
+			else if (sseqSet==true){
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}else {
 				p.set(10, 0);
 			}
 		}
 		if (choice.equals("ls")) {
-			if (lseq == true) {
+			if ((lseq == true)&&(lseqSet==false)) {
 				p.set(11, 40);
 				lseq = false;
-			} else {
+				lseqSet=true;
+			} 
+			else if (lseqSet==true){
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}else {
 				p.set(11, 0);
 			}
 		}
@@ -306,7 +375,14 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 			}
 		}
 		if (choice.equals("c")) {
+			if (chanceSet==false) {
 			p.set(13, p.dg.getTotal(DiceGroup));
+			chanceSet=true;
+			}
+			else {
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}
 		}
 	}
 
