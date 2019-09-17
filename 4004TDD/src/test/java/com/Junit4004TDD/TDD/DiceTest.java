@@ -71,17 +71,7 @@ public class DiceTest extends TestCase {
 		ss.print(p1);
 		assertEquals(p1.aces, 10);
 	}
-	public void testSheetNoChange2() { // score sheet values cannot be changed
-		Player p1 = new Player("p1");
-		Player p2 = new Player("p2");
-		Player p3 = new Player("p3");
-		DiceGroup dg = new DiceGroup();
-		dg.scoreSetter(p1, "3K");
-		dg.scoreSetter(p1, "3K");
-		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
-		ss.print(p1);
-		//assertEquals(p1.aces, 10);
-	}
+
 	public void testinputKeep() { // test the roll and keep functionality
 		DiceGroup dg = new DiceGroup();
 		Dice d1 = new Dice();

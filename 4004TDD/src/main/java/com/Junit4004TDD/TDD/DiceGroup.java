@@ -252,7 +252,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 		if (choice.equals("a6")) {
 			p.set(6, sumUS(6));
 		}
-		if (choice.equals("3K")) {
+		if (choice.equals("3K")) {System.out.println("LOL");
 			if ((threeK == true)&&(threeKSet==false)) {
 				p.set(7, p.dg.getTotal(DiceGroup));
 				threeK = false;
