@@ -28,7 +28,7 @@ public class DiceTest extends TestCase {
 		Player p2 = new Player("p2");
 		Player p3 = new Player("p3");
 		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
-		ss.print();
+		ss.print(p1);
 		assertEquals(0, 0);
 	}
 
@@ -39,7 +39,7 @@ public class DiceTest extends TestCase {
 		p1.aces = 10;
 		p1.fives = 55;
 		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
-		ss.print();
+		ss.print(p1);
 		assertEquals(p1.Bonus, 35);
 	}
 
@@ -50,7 +50,7 @@ public class DiceTest extends TestCase {
 		p1.aces = 10;
 		p1.fives = 50;
 		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
-		ss.print();
+		ss.print(p1);
 		assertEquals(p1.Bonus, 0);
 	}
 
@@ -68,7 +68,21 @@ public class DiceTest extends TestCase {
 		p1.set(1, 10);
 		p1.set(1, 50);
 		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
-		ss.print();
+		ss.print(p1);
 		assertEquals(p1.aces, 10);
+	}
+	public void testinputKeep() { // test the roll and keep functionality
+		DiceGroup dg = new DiceGroup();
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		Dice d4 = new Dice();
+		Dice d5 = new Dice();
+		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
+		dg.DiceGroup=DiceGroup;
+		d1.setNumber(1); d2.setNumber(2); d3.setNumber(3); d4.setNumber(4); d5.setNumber(5);
+dg.rollAndKeep();
+		System.out.println(dg.DiceGroup.size());
 	}
 }

@@ -2,52 +2,59 @@ package com.Junit4004TDD.TDD;
 
 import java.io.Serializable;
 
-public class ScoreSheet implements Serializable{
+public class ScoreSheet implements Serializable {
 	public Player p1;
 	public Player p2;
 	public Player p3;
 	int round = 0;
-	public int g1=0;
-	public int g2=0;
-	public int g3=0;
+	public int g1 = 0;
+	public int g2 = 0;
+	public int g3 = 0;
+
 	public ScoreSheet(Player p1, Player p2, Player p3) {
 		this.p1 = p1;
 		this.p2 = p2;
 		this.p3 = p3;
 	}
-	
+
 	public void roundDone(int i) {
 		System.out.println("Round " + i + " Complete!");
-			round=i;
+		round = i;
 	}
-	
-	public void print() {
-		System.out.println("----------------------------------------------------------------------");
-		System.out.println("Upper Section | " + p1.name + "  |  " + p2.name + "  |  " + p3.name);
-		System.out.println("        Aces  | " + p1.aces + "   |  " + p2.aces + "   |  " + p3.aces);
-		System.out.println("        Twos  | " + p1.twos + "   |  " + p2.twos + "   |  " + p3.twos);
-		System.out.println("      Threes  | " + p1.threes + "   |  " + p2.threes + "   |  " + p3.threes);
-		System.out.println("       Fours  | " + p1.fours + "   |  " + p2.fours + "   |  " + p3.fours);
-		System.out.println("       Fives  | " + p1.fives + "   |  " + p2.fives + "   |  " + p3.fives);
-		System.out.println("       Sixes  | " + p1.sixes + "   |  " + p2.sixes + "   |  " + p3.sixes);
-		System.out.println("  Total Score | " + p1.USbefore() + "   |  " + p2.USbefore() + "   |  " + p3.USbefore());
-		System.out.println("       Bonus  | " + p1.Bonus + "   |  " + p2.Bonus + "   |  " + p3.Bonus);
-		System.out.println("       Total  | " + p1.USafter() + "   |  " + p2.USafter() + "   |  " + p3.USafter());
-		System.out.println("Lower Section");
-		System.out.println(" 3 of a kind  | " + p1.threeOfKind + "   |  " + p2.threeOfKind + "   |  " + p3.threeOfKind);
-		System.out.println(" 4 of a kind  | " + p1.fourOfKind + "   |  " + p2.fourOfKind + "   |  " + p3.fourOfKind);
-		System.out.println("  Full House  | " + p1.fullHouse + "   |  " + p2.fullHouse + "   |  " + p3.fullHouse);
-		System.out.println("Sm. Straight  | " + p1.smStraight + "   |  " + p2.smStraight + "   |  " + p3.smStraight);
-		System.out.println("Lg. Straight  | " + p1.lgStraight + "   |  " + p2.lgStraight + "   |  " + p3.lgStraight);
-		System.out.println("     YAHTZEE  | " + p1.Yahtzee + "   |  " + p2.Yahtzee + "   |  " + p3.Yahtzee);
-		System.out.println("      chance  | " + p1.chance + "   |  " + p2.chance + "   |  " + p3.chance);
+
+	public void winner() {
+		if ((p1.GrandTotal > p2.GrandTotal) && (p1.GrandTotal > p3.GrandTotal)) {
+			System.out.println(p1.name + " has won the game with: " + p1.GrandTotal + " points!");
+		}
+		if ((p2.GrandTotal > p1.GrandTotal) && (p2.GrandTotal > p3.GrandTotal)) {
+			System.out.println(p2.name + " has won the game with: " + p2.GrandTotal + " points!");
+		}
+		if ((p3.GrandTotal > p2.GrandTotal) && (p3.GrandTotal > p1.GrandTotal)) {
+			System.out.println(p3.name + " has won the game with: " + p3.GrandTotal + " points!");
+		}
+	}
+
+	public void print(Player p) {
+		p.USbefore();p.USafter();p.totLS(); p.totUS(); 
 		System.out.println(
-				"YAHTZEE Bonus | " + p1.YahtzeeBonus + "   |  " + p2.YahtzeeBonus + "   |  " + p3.YahtzeeBonus);
-		System.out.println("Total Lower   | " + p1.totLS() + "   |  " + p2.totLS() + "   |  " + p3.totLS());
-		System.out.println("Total Upper   | " + p1.totUS() + "   |  " + p2.totUS() + "   |  " + p3.totUS());
-		System.out.println("---------------------------------");
+				"---------------------------------------------------------------------------------------------");
+		System.out.println("|  Name: " + p.name + "          | Current Score: " + p.GrandTotal() + " |          Round: "
+				+ p.round + "                                 |");
 		System.out.println(
-				"Grand Total   | " + p1.GrandTotal() + "   |  " + p2.GrandTotal() + "   |  " + p3.GrandTotal());
+				"|-------------------------------------------------------------------------------------------|");
+		System.out.println(
+				"|  Ones: " + p.aces + "  | Twos:" + p.twos + "  | Threes: " + p.threes + "  | Fours: " + p.fours
+						+ "  | Fives: " + p.fives + "  | Sixes: " + p.sixes + "  | Bonus: " + p.Bonus + "           |");
+		System.out.println(
+				"|-------------------------------------------------------------------------------------------|");
+		System.out.println("|  3 of a kind: " + p.threeOfKind + "  | 4 of a kind:" + p.fourOfKind + "  | Full House: "
+				+ p.fullHouse + "  | Sm. Straight: " + p.smStraight + "  | Lg. Straight:" + p.lgStraight + "   |");
+		System.out.println(
+				"|-------------------------------------------------------------------------------------------|");
+		System.out.println("|  YAHTZEE: " + p.Yahtzee + " |   Chance: " + p.chance + " |   YAHTZEE Bonus: "
+				+ p.YahtzeeBonus + "                                            |");
+		System.out.println(
+				"---------------------------------------------------------------------------------------------");
 	}
 
 }

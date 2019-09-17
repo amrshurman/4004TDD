@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.*;
 
 public class Server {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnknownHostException, IOException {
 		// int count = 0;
 		Player p1 = new Player("null");
 		Player p2 = new Player("null");
@@ -41,8 +41,10 @@ public class Server {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		p3.round=0;
 		while (true) {
 			try {
+				p3.round++;
 				Socket ssocket = new Socket("localhost", 9999); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				System.out.println("Notifying player 1 to start:");
@@ -69,6 +71,7 @@ public class Server {
 			}
 			
 			try {
+				p1.round++;
 				Socket ssocket = new Socket("localhost", 2222); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				System.out.println("Notifying player 2 to start:");
@@ -95,6 +98,7 @@ public class Server {
 			}
 			
 			try {
+				p2.round++;
 				Socket ssocket = new Socket("localhost", 3333); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				System.out.println("Notifying player 3 to start:");
@@ -121,6 +125,10 @@ public class Server {
 			}
 			ss.roundDone(round);
 			round++;
+			if (p3.round==14) {
+			    	 ss.winner();
+			    	 System.exit(1);
+			}
 		}
 	}
 }

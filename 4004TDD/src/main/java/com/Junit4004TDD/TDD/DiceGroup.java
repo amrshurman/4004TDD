@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DiceGroup implements Serializable{ // class for GROUP of dice
+public class DiceGroup implements Serializable { // class for GROUP of dice
 	ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 	boolean threeK = false;
 	boolean fourK = false;
@@ -12,7 +12,7 @@ public class DiceGroup implements Serializable{ // class for GROUP of dice
 	boolean lseq = false;
 	boolean fh = false;
 	boolean y = false;
-	
+
 	public DiceGroup() { // initializes the total 5 dice
 		for (int i = 0; i < 5; i++) {
 			Dice d = new Dice();
@@ -35,11 +35,15 @@ public class DiceGroup implements Serializable{ // class for GROUP of dice
 	}
 
 	public void printDice() {
-		System.out.println("-----------------------------------------------");
-		System.out.println("Current Dice numbers:");
-		for (int i = 0; i < DiceGroup.size(); i++) {
-			System.out.println("Dice (" + (i + 1) + "): " + DiceGroup.get(i).getNumber());
-		}
+	//	System.out.println("-----------------------------------------------");
+		System.out.println("You rolled:");
+		System.out.println(" (1)       (2)       (3)       (4)       (5)");
+		System.out.println("-----     -----     -----     -----     -----");
+		System.out.println("| " + DiceGroup.get(0).getNumber() + " |     | " + DiceGroup.get(1).getNumber()
+				+ " |     | " + DiceGroup.get(2).getNumber() + " |     | " + DiceGroup.get(3).getNumber() + " |     | "
+				+ DiceGroup.get(4).getNumber()+ " |");
+		System.out.println("-----     -----     -----     -----     -----");
+
 		System.out.println("-----------------------------------------------");
 	}
 
@@ -127,6 +131,7 @@ public class DiceGroup implements Serializable{ // class for GROUP of dice
 		}
 		return empty;
 	}
+
 	public void pickDice(Player p) {
 
 		if (OfKind(DiceGroup).size() == 5) {
@@ -148,9 +153,10 @@ public class DiceGroup implements Serializable{ // class for GROUP of dice
 			fh = true;
 		}
 	}
+
 	public void suggestions(Player p) {
 		System.out.println("Suggestions for the lower section of the score sheet: ");
-		
+
 		if (OfKind(DiceGroup).size() == 5) {
 			System.out.print("YAHTZEE! for values: ");
 			y = true;
@@ -200,6 +206,7 @@ public class DiceGroup implements Serializable{ // class for GROUP of dice
 			System.out.println();
 		}
 	}
+
 	public String inputChoice(Player p) {
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
@@ -218,7 +225,8 @@ public class DiceGroup implements Serializable{ // class for GROUP of dice
 		String choice = s.nextLine();
 		return choice;
 	}
-	public void scoreSetter(Player p,String choice) {
+
+	public void scoreSetter(Player p, String choice) {
 		if (choice.equals("a1")) {
 			p.set(1, sumUS(1));
 		}
@@ -279,10 +287,10 @@ public class DiceGroup implements Serializable{ // class for GROUP of dice
 		}
 		if (choice.equals("y")) {
 			if (y == true) {
-				p.set(12, 50);
+				p.setY(12, 50,DiceGroup.get(0).getNumber());
 				y = false;
 			} else {
-				p.set(12, 0);
+				p.setY(12, 0,DiceGroup.get(0).getNumber());
 			}
 		}
 		if (choice.equals("c")) {
@@ -299,70 +307,43 @@ public class DiceGroup implements Serializable{ // class for GROUP of dice
 		}
 		return count;
 	}
-
+public void readKeep(String s) {
+	ArrayList<Dice> dg = new ArrayList<Dice>();
+	for (int i=0;i<s.length();i+=2) {
+		int n=Character.getNumericValue(s.charAt(i));
+		if ((n>0)&&(n<6)) {
+			dg.add(DiceGroup.get(n-1));
+		}
+	} 
+	int x = dg.size();
+	for (int i=0;i<(5-x);i++) {
+		Dice d = new Dice(); //System.out.println(dg.size());
+		d.roll();
+		dg.add(d);
+	}
+	DiceGroup = dg;
+}
 	public void rollAndKeep() {
-		boolean one = false;
-		boolean two = false;
-		boolean three = false;
-		boolean four = false;
-		boolean five = false;
+		System.out.println("Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
 		for (int i = 0; i < DiceGroup.size(); i++) {
-			System.out.println("Type (" + (i + 1) + ") if you want to roll " + DiceGroup.get(i).getNumber());
+			System.out.println("Position: (" + (i + 1) + ") :" + DiceGroup.get(i).getNumber());
 		}
-		System.out.println("Type (r) if you want to reroll everything.");
-		while (true) {
-			System.out.println("Type (d) if you are done rolling.");
-			Scanner s = new Scanner(System.in);
-			String choice = s.nextLine();
-			if (choice.equals("r")) {
-				groupRoll();
-				break;
-			}
-			if (choice.equals("1")) {
-				one = true;
-			}
-			if (choice.equals("2")) {
-				two = true;
-			}
-			if (choice.equals("3")) {
-				three = true;
-			}
-			if (choice.equals("4")) {
-				four = true;
-			}
-			if (choice.equals("5")) {
-				five = true;
-			}
-			if (choice.equals("d")) {
-				break;
-			}
-		}
-		if (one==true) {
-			DiceGroup.get(0).roll();
-		}
-		if (two==true) {
-			DiceGroup.get(1).roll();
-		}
-		if (three==true) {
-			DiceGroup.get(2).roll();
-		}
-		if (four==true) {
-			DiceGroup.get(3).roll();
-		}
-		if (five==true) {
-			DiceGroup.get(4).roll();
-		}
+		Scanner s = new Scanner(System.in);
+		String choice = s.nextLine();
+		readKeep(choice);
 		printDice();
 	}
+
 	public String convertList() {
-		String s="";
-		for (int i=0;i<DiceGroup.size();i++) {
-			s+=DiceGroup.get(i).getNumber();
+		String s = "";
+		for (int i = 0; i < DiceGroup.size(); i++) {
+			s += DiceGroup.get(i).getNumber();
 		}
 		return s;
 	}
+
 	public void convertString(String s) {
-		for (int i=0;i<DiceGroup.size();i++) {
+		for (int i = 0; i < DiceGroup.size(); i++) {
 			DiceGroup.get(i).setNumber(Character.getNumericValue(s.charAt(i)));
 		}
 	}

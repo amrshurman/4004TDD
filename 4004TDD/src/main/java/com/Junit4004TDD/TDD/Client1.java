@@ -32,29 +32,41 @@ public class Client1 {
 				DiceGroup dg = new DiceGroup();
 				Player p = new Player(ss.p1.name);
 				dg=ss.p1.dg;
-			     ss.print();
+			     ss.print(ss.p1);ss.print(ss.p2);ss.print(ss.p3);
+			     if (ss.p3.round==14) {
+			    	 ss.winner();
+			    	 System.exit(1);
+			     }
+			     p.round++;
 				int count = 2;
 				Scanner s1 = new Scanner(System.in);
 				String o = "";
 				String choice = "";
 				dg.printDice();
 				dg.suggestions(p);
-				while (!o.equals("s")) {
-					System.out.println(
-							"Type (r) to reroll some dice. (" + count + " tries left.) Type (s) to enter a score");
-					o = s1.nextLine();
-					if (o.equals("r")) {
-						if (count > 0) {
-							dg.rollAndKeep();
+				while (!o.equals("3")) {
+					if (count!=0) {
+						System.out.println(
+								"Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
+						System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
+						System.out.println("Type (3) to score this round");
+						o = s1.nextLine();
+						}
+						if (o.equals("1")&&(count>0)) {
+								dg.rollAndKeep();
+								dg.suggestions(p);
+								count--;
+						}
+						if (o.equals("2")&&(count>0)) {
+							dg.groupRoll();
+							dg.printDice();
 							dg.suggestions(p);
 							count--;
-						} else {
-							System.out.println("You cannot reroll because you ran out of any re rolls");
+					} else if (o.equals("3") || (count==0)) {
+							choice = dg.inputChoice(p);
+							count=2;
+							break;
 						}
-					} else if (o.equals("s")) {
-						choice = dg.inputChoice(p);
-						count=2;
-					}
 				}
 				Socket ssocket = new Socket("localhost", 6667); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());

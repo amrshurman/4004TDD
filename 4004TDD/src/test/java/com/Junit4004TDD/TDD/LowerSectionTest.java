@@ -219,6 +219,7 @@ public class LowerSectionTest extends TestCase{
 		p1.dg.suggestions(p1); //score another yahtzee with same dice
 		p1.dg.scoreSetter(p1,"y");
 		assertEquals(p1.YahtzeeBonus,100);
+		assertEquals(p1.twos,10);
 	}
 	public void testYahtzeeBonusScore2() { //test for long yahtzee bonus score
 		Dice d1 = new Dice();
@@ -237,9 +238,7 @@ public class LowerSectionTest extends TestCase{
 		p1.dg.scoreSetter(p1,"y");
 		p1.dg.suggestions(p1); //score another yahtzee with same dice
 		p1.dg.scoreSetter(p1,"y");
-		p1.dg.suggestions(p1); //score another yahtzee with same dice
-		p1.dg.scoreSetter(p1,"y");
-		assertEquals(p1.YahtzeeBonus,300);
+		assertEquals(p1.YahtzeeBonus,200);
 	}
 	public void testChanceScore() { //test for long chance score
 		Dice d1 = new Dice();

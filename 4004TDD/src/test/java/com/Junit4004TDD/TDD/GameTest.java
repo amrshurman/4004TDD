@@ -22,7 +22,7 @@ public class GameTest extends TestCase{ //should print score sheet properly
 	 String choice = dg.inputChoice(p1);
 	 dg.scoreSetter(p1,choice);
 	 ScoreSheet ss = new ScoreSheet(p1,p2,p3);
-	 ss.print();
+	 ss.print(p1);
 		assertEquals(0, 0);
 	}
 }
