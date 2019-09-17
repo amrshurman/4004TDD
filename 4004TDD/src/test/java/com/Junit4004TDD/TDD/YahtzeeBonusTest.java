@@ -11,6 +11,7 @@ public class YahtzeeBonusTest extends TestCase{
 		Dice d4 = new Dice();
 		Dice d5 = new Dice();
 		Player p1=new Player("p1");
+		ScoreSheet ss = new ScoreSheet(p1,null,null);
 		d1.setNumber(2); d2.setNumber(2); d3.setNumber(2); d4.setNumber(2);d5.setNumber(2);
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
@@ -21,7 +22,7 @@ public class YahtzeeBonusTest extends TestCase{
 		p1.dg.scoreSetter(p1,"y");
 		p1.dg.suggestions(p1); //score another yahtzee with same dice
 		p1.dg.scoreSetter(p1,"y");
-		p1.dg.printDice();
+		ss.print(p1);
 		assertEquals(p1.YahtzeeBonus,200);
 	}
 }

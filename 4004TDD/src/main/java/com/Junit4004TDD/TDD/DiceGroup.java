@@ -13,6 +13,13 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 	boolean fh = false;
 	boolean y = false;
 
+	boolean threeKSet = false;
+	boolean fourKSet = false;
+	boolean sseqSet = false;
+	boolean lseqSet = false;
+	boolean fhSet = false;
+	boolean ySet = false;
+	
 	public DiceGroup() { // initializes the total 5 dice
 		for (int i = 0; i < 5; i++) {
 			Dice d = new Dice();
@@ -246,10 +253,15 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 			p.set(6, sumUS(6));
 		}
 		if (choice.equals("3K")) {
-			if (threeK == true) {
+			if ((threeK == true)&&(threeKSet==false)) {
 				p.set(7, p.dg.getTotal(DiceGroup));
 				threeK = false;
-			} else {
+				threeKSet=true;
+			}
+			else if (threeKSet==true){
+				System.out.println("You cannot select this value because you already set the value here.");
+				scoreSetter(p,inputChoice(p));
+			}else {
 				p.set(7, 0);
 			}
 		}
