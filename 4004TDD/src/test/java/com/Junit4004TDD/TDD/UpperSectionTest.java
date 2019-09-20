@@ -117,7 +117,7 @@ public class UpperSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.pickDice(p1);
-		p1.dg.scoreSetter(p1,"a1");
+		p1.dg.scoreSetter(p1,"1");
 		assertEquals(p1.aces,2);
 	}
 	public void testTwosScore() { //test for long chance score
@@ -132,7 +132,7 @@ public class UpperSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.pickDice(p1);
-		p1.dg.scoreSetter(p1,"a2");
+		p1.dg.scoreSetter(p1,"2");
 		assertEquals(p1.twos,4);
 	}
 	public void testThreesScore() { //test for long chance score
@@ -147,7 +147,7 @@ public class UpperSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.pickDice(p1);
-		p1.dg.scoreSetter(p1,"a3");
+		p1.dg.scoreSetter(p1,"3");
 		assertEquals(p1.threes,3);
 	}
 	public void testFourScore() { //test for long chance score
@@ -162,7 +162,7 @@ public class UpperSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.pickDice(p1);
-		p1.dg.scoreSetter(p1,"a4");
+		p1.dg.scoreSetter(p1,"4");
 		assertEquals(p1.fours,4);
 	}
 	public void testFivesScore() { //test for long chance score
@@ -177,7 +177,7 @@ public class UpperSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.pickDice(p1);
-		p1.dg.scoreSetter(p1,"a5");
+		p1.dg.scoreSetter(p1,"5");
 		assertEquals(p1.fives,10);
 	}
 	public void testSixesScore() { //test for long chance score
@@ -192,7 +192,7 @@ public class UpperSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.pickDice(p1);
-		p1.dg.scoreSetter(p1,"a6");
+		p1.dg.scoreSetter(p1,"6");
 		assertEquals(p1.sixes,12);
 	}
 }

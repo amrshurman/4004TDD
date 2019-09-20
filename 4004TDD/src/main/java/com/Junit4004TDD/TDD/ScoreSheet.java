@@ -35,7 +35,10 @@ public class ScoreSheet implements Serializable {
 	}
 
 	public void print(Player p) {
-		p.USbefore();p.USafter();p.totLS(); p.totUS(); 
+		p.USbefore();
+		p.USafter();
+		p.totLS();
+		p.totUS();
 		System.out.println(
 				"---------------------------------------------------------------------------------------------");
 		System.out.println("|  Name: " + p.name + "          | Current Score: " + p.GrandTotal() + " |          Round: "
@@ -51,8 +54,8 @@ public class ScoreSheet implements Serializable {
 				+ p.fullHouse + "  | Sm. Straight: " + p.smStraight + "  | Lg. Straight:" + p.lgStraight + "   |");
 		System.out.println(
 				"|-------------------------------------------------------------------------------------------|");
-		System.out.println("|  YAHTZEE: " + p.Yahtzee + " |   Chance: " + p.chance + " |   YAHTZEE Bonus: "
-				+ p.YahtzeeBonus + "                                            |");
+		System.out.println("|  YAHTZEE: " + p.Yahtzee + " |   Chance: " + p.chance
+				+ "                                                                |");
 		System.out.println(
 				"---------------------------------------------------------------------------------------------");
 	}

@@ -125,7 +125,7 @@ public class LowerSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.suggestions(p1);
-		p1.dg.scoreSetter(p1,"3K");
+		p1.dg.scoreSetter(p1,"7");
 		assertEquals(p1.threeOfKind,10);
 	}
 	public void test4KScore() { //four of a kind score test. Should be suggested to add 3 of a kind as well
@@ -140,7 +140,7 @@ public class LowerSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.suggestions(p1);
-		p1.dg.scoreSetter(p1,"4K");
+		p1.dg.scoreSetter(p1,"8");
 		assertEquals(p1.fourOfKind,9);
 	}
 	public void testFHScore() { //full house score
@@ -155,7 +155,7 @@ public class LowerSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.suggestions(p1);
-		p1.dg.scoreSetter(p1,"fh");
+		p1.dg.scoreSetter(p1,"9");
 		assertEquals(p1.fullHouse,25);
 	}
 	public void testSsScore() { //test for small straight score
@@ -170,7 +170,7 @@ public class LowerSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.suggestions(p1);
-		p1.dg.scoreSetter(p1,"ss");
+		p1.dg.scoreSetter(p1,"10");
 		assertEquals(p1.smStraight,30);
 	}
 	public void testLsScore() { //test for long straight score
@@ -185,7 +185,7 @@ public class LowerSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.suggestions(p1);
-		p1.dg.scoreSetter(p1,"ls");
+		p1.dg.scoreSetter(p1,"11");
 		assertEquals(p1.lgStraight,40);
 	}
 	public void testYahtzeeScore() { //test for long yahtzee score
@@ -200,7 +200,7 @@ public class LowerSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.suggestions(p1);
-		p1.dg.scoreSetter(p1,"y");
+		p1.dg.scoreSetter(p1,"12");
 		assertEquals(p1.Yahtzee,50);
 	}
 	public void testYahtzeeBonusScore() { //test for long yahtzee bonus score if spot in upper section not taken
@@ -214,11 +214,11 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
-		p1.dg.pickDice(p1);
-		p1.dg.scoreSetter(p1,"y");
+		p1.dg.suggestions(p1);
+		p1.dg.scoreSetter(p1,"12");
 		p1.dg.suggestions(p1); //score another yahtzee with same dice
-		p1.dg.scoreSetter(p1,"y");
-		assertEquals(p1.YahtzeeBonus,100);
+		p1.dg.scoreSetter(p1,"12");
+		assertEquals(p1.Yahtzee,150);
 		assertEquals(p1.twos,10);
 	}
 	public void testChanceScore() { //test for long chance score
@@ -233,7 +233,7 @@ public class LowerSectionTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.suggestions(p1);
-		p1.dg.scoreSetter(p1,"c");
+		p1.dg.scoreSetter(p1,"13");
 		assertEquals(p1.chance,15);
 	}
 }

@@ -149,7 +149,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 	public void pickDice(Player p) {
 
 		if (OfKind(DiceGroup).size() == 5) {
-			System.out.print("YAHTZEE! for values: ");
+			y = true;
 		}
 		if (OfKind(DiceGroup).size() == 3) {
 			threeK = true;
@@ -179,18 +179,18 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 			}
 			System.out.println();
 		}
-		if (OfKind(DiceGroup).size() == 3) {
+		if (OfKind(DiceGroup).size() >= 3) {
 			threeK = true;
 			System.out.print("This group has a 3 of a kind: ");
-			for (int i = 0; i < OfKind(DiceGroup).size(); i++) {
+			for (int i = 0; i < 3; i++) {
 				System.out.print(OfKind(DiceGroup).get(i).getNumber() + " ");
 			}
 			System.out.println();
 		}
-		if (OfKind(DiceGroup).size() == 4) {
+		if (OfKind(DiceGroup).size() >= 4) {
 			fourK = true;
 			System.out.print("This group has a 4 of a kind: ");
-			for (int i = 0; i < OfKind(DiceGroup).size(); i++) {
+			for (int i = 0; i < 4; i++) {
 				System.out.print(OfKind(DiceGroup).get(i).getNumber() + " ");
 			}
 			System.out.println();
@@ -225,14 +225,14 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
 		System.out.println(
-				"Type (a1) to scratch aces value. Type (a2) to scratch twos value. Type (a3) to scratch threes value.");
+				"Type (1) to scratch aces value. Type (2) to scratch twos value. Type (3) to scratch threes value.");
 		System.out.println(
-				"Type (a4) to scratch fours value. Type (a5) to scratch fives value. Type (a6) to scratch sixes value.");
+				"Type (4) to scratch fours value. Type (5) to scratch fives value. Type (6) to scratch sixes value.");
 		System.out.println(
-				"Type (3k) to scratch 3 of a kind value. Type (4k) to scratch 4 of a kind value. Type (fh) to scratch");
+				"Type (7) to scratch 3 of a kind value. Type (8) to scratch 4 of a kind value. Type (9) to scratch");
 		System.out.println(
-				"Full House value. Type (ss) to scratch small straight value. Type (ls) to scratch long straight value.");
-		System.out.println("Type (y) to scratch YAHTZEE value. Type (c) to scratch chance value.");
+				"Full House value. Type (10) to scratch small straight value. Type (11) to scratch long straight value.");
+		System.out.println("Type (12) to scratch YAHTZEE value. Type (13) to scratch chance value.");
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
 		Scanner s = new Scanner(System.in);
@@ -241,7 +241,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 	}
 
 	public void scoreSetter(Player p, String choice) {
-		if (choice.equals("a1")) {
+		if (choice.equals("1")) {
 			if (onesSet==false) {
 			p.set(1, sumUS(1));
 			onesSet=true;
@@ -251,7 +251,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				scoreSetter(p,inputChoice(p));
 			}
 		}
-		if (choice.equals("a2")) {
+		if (choice.equals("2")) {
 			if (twosSet==false) {
 			p.set(2, sumUS(2));
 			twosSet=true;
@@ -261,7 +261,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				scoreSetter(p,inputChoice(p));
 			}
 		}
-		if (choice.equals("a3")) {
+		if (choice.equals("3")) {
 			if (threesSet==false) {
 			p.set(3, sumUS(3));
 			threesSet=true;
@@ -271,7 +271,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				scoreSetter(p,inputChoice(p));
 			}
 		}
-		if (choice.equals("a4")) {
+		if (choice.equals("4")) {
 			if (foursSet==false) {
 			p.set(4, sumUS(4));
 			foursSet=true;
@@ -281,7 +281,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				scoreSetter(p,inputChoice(p));
 			}
 		}
-		if (choice.equals("a5")) {
+		if (choice.equals("5")) {
 			if (fivesSet==false) {
 			p.set(5, sumUS(5));
 			fivesSet=true;
@@ -291,7 +291,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				scoreSetter(p,inputChoice(p));
 			}
 		}
-		if (choice.equals("a6")) {
+		if (choice.equals("6")) {
 			if (sixesSet==false) {
 			p.set(6, sumUS(6));
 			sixesSet=true;
@@ -301,7 +301,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				scoreSetter(p,inputChoice(p));
 			}
 		}
-		if (choice.equals("3K")) {
+		if (choice.equals("7")) {
 			if ((threeK == true)&&(threeKSet==false)) {
 				p.set(7, p.dg.getTotal(DiceGroup));
 				threeK = false;
@@ -314,7 +314,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				p.set(7, 0);
 			}
 		}
-		if (choice.equals("4K")) {
+		if (choice.equals("8")) {
 			if ((fourK == true)&&(fourKSet==false)) {
 				p.set(8, p.dg.getTotal(DiceGroup));
 				fourK = false;
@@ -327,7 +327,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				p.set(8, 0);
 			}
 		}
-		if (choice.equals("fh")) {
+		if (choice.equals("9")) {
 			if ((fh == true)&&(fhSet==false)) {
 				p.set(9, 25);
 				fh = false;
@@ -340,7 +340,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				p.set(9, 0);
 			}
 		}
-		if (choice.equals("ss")) {
+		if (choice.equals("10")) {
 			if ((sseq == true)&&(sseqSet==false)) {
 				p.set(10, 30);
 				sseq = false;
@@ -353,7 +353,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				p.set(10, 0);
 			}
 		}
-		if (choice.equals("ls")) {
+		if (choice.equals("11")) {
 			if ((lseq == true)&&(lseqSet==false)) {
 				p.set(11, 40);
 				lseq = false;
@@ -366,7 +366,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				p.set(11, 0);
 			}
 		}
-		if (choice.equals("y")) {
+		if (choice.equals("12")) {
 			if (y == true) {
 				p.setY(12, 50,DiceGroup.get(0).getNumber());
 				y = false;
@@ -374,7 +374,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 				p.setY(12, 0,DiceGroup.get(0).getNumber());
 			}
 		}
-		if (choice.equals("c")) {
+		if (choice.equals("13")) {
 			if (chanceSet==false) {
 			p.set(13, p.dg.getTotal(DiceGroup));
 			chanceSet=true;

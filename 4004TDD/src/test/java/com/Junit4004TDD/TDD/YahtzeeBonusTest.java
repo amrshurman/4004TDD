@@ -17,12 +17,12 @@ public class YahtzeeBonusTest extends TestCase{
 		DiceGroup.add(d1);DiceGroup.add(d2);DiceGroup.add(d3);DiceGroup.add(d4);DiceGroup.add(d5);
 		p1.dg.DiceGroup=DiceGroup;
 		p1.dg.suggestions(p1);
-		p1.dg.scoreSetter(p1,"y");
+		p1.dg.scoreSetter(p1,"12");
 		p1.dg.suggestions(p1); //score another yahtzee with same dice
-		p1.dg.scoreSetter(p1,"y");
+		p1.dg.scoreSetter(p1,"12");
 		p1.dg.suggestions(p1); //score another yahtzee with same dice
-		p1.dg.scoreSetter(p1,"y");
-		ss.print(p1);
-		assertEquals(p1.YahtzeeBonus,200);
+		p1.dg.scoreSetter(p1,"12");
+		ss.print(p1);System.out.println(p1.Yahtzee);
+		assertEquals(p1.Yahtzee,250);
 	}
 }

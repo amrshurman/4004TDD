@@ -187,7 +187,7 @@ public class Player implements Serializable {
 				Yahtzee = j;
 				yahtzeeB = true;
 			} else {
-				YahtzeeBonus += 100;
+				Yahtzee += 100;
 				yahtzeeB2 = true;
 				System.out.println("100 points added to Yahtzee! You must also score in another category!");
 				if (YahtzeeBonus(z)==false) {
@@ -206,6 +206,7 @@ public class Player implements Serializable {
 			if (acesB==false) {
 				aces=5;
 				acesB=true;
+				dg.onesSet=true;
 				System.out.println("added 5 points to ones!");
 				return true;
 			}
@@ -214,6 +215,7 @@ public class Player implements Serializable {
 			if (twosB==false) {
 				twos=10;
 				twosB=true;
+				dg.twosSet=true;
 				System.out.println("added 10 points to twos!");
 				return true;
 			}
@@ -222,6 +224,7 @@ public class Player implements Serializable {
 			if (threesB==false) {
 				threes=15;
 				threesB=true;
+				dg.threesSet=true;
 				System.out.println("added 15 points to threes!");
 				return true;
 			}
@@ -230,6 +233,7 @@ public class Player implements Serializable {
 			if (foursB==false) {
 				fours=20;
 				foursB=true;
+				dg.foursSet=true;
 				System.out.println("added 20 points to fours!");
 				return true;
 			}
@@ -238,6 +242,7 @@ public class Player implements Serializable {
 			if (fivesB==false) {
 				fives=25;
 				fivesB=true;
+				dg.fivesSet=true;
 				System.out.println("added 25 points to fives!");
 				return true;
 			}
@@ -246,6 +251,7 @@ public class Player implements Serializable {
 			if (sixesB==false) {
 				sixes=30;
 				sixesB=true;
+				dg.sixesSet=true;
 				System.out.println("added 30 points to sixes!");
 				return true;
 			}
