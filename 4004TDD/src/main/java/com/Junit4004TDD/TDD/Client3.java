@@ -37,6 +37,9 @@ public class Client3 {
 				ss.print(ss.p1);
 				if (ss.p3.round == 14) {
 					ss.winner();
+					Socket ssocket = new Socket("localhost", 3334); // sending socket
+					DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
+					dout.writeUTF("q");
 					System.exit(1);
 				}
 				p.round++;
