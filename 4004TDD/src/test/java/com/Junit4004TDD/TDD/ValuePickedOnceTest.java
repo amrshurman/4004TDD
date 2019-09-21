@@ -20,9 +20,9 @@ public class ValuePickedOnceTest extends TestCase{
 		dg.DiceGroup=DiceGroup;
 		d1.setNumber(3); d2.setNumber(3); d3.setNumber(3); d4.setNumber(4); d5.setNumber(5);
 		dg.pickDice(p1);
-		dg.scoreSetter(p1, "3K");
+		dg.scoreSetter(p1, "7");
 		dg.pickDice(p1);
-		dg.scoreSetter(p1, "3K");
+		dg.scoreSetter(p1, "7");
 		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
 		ss.print(p1);
 		//assertEquals(p1.aces, 10);

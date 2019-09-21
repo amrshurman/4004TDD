@@ -195,4 +195,27 @@ public class UpperSectionTest extends TestCase{
 		p1.dg.scoreSetter(p1,"6");
 		assertEquals(p1.sixes,12);
 	}
+	public void testBonus1() { // should print Upper Section correctly with bonus for p1
+		Player p1 = new Player("p1");
+		Player p2 = new Player("p2");
+		Player p3 = new Player("p3");
+		p1.acesB=true;p1.fivesB=true;
+		p1.aces = 10;
+		p1.fives = 55;
+		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
+		ss.print(p1);
+		assertEquals(p1.Bonus, 35);
+	}
+
+	public void testBonus2() { // should print Upper Section correctly with NO bonus for p1
+		Player p1 = new Player("p1");
+		Player p2 = new Player("p2");
+		Player p3 = new Player("p3");
+		p1.acesB=true;p1.fivesB=true;
+		p1.aces = 10;
+		p1.fives = 50;
+		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
+		ss.print(p1);
+		assertEquals(p1.Bonus, 0);
+	}
 }
