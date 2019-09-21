@@ -46,18 +46,17 @@ public class ScoreSheet implements Serializable {
 		System.out.println(
 				"|-------------------------------------------------------------------------------------------|");
 		System.out.println(
-				"|  Ones: " + p.aces + "  | Twos:" + p.twos + "  | Threes: " + p.threes + "  | Fours: " + p.fours
-						+ "  | Fives: " + p.fives + "  | Sixes: " + p.sixes + "  | Bonus: " + p.Bonus + "           |");
+				"|  Ones: " + p.sPrint(1) + "  | Twos:" + p.sPrint(2) + "  | Threes: " + p.sPrint(3) + "  | Fours: " + p.sPrint(4)
+						+ "  | Fives: " + p.sPrint(5) + "  | Sixes: " + p.sPrint(6) + "  | Bonus: " + p.Bonus + "           |");
 		System.out.println(
 				"|-------------------------------------------------------------------------------------------|");
-		System.out.println("|  3 of a kind: " + p.threeOfKind + "  | 4 of a kind:" + p.fourOfKind + "  | Full House: "
-				+ p.fullHouse + "  | Sm. Straight: " + p.smStraight + "  | Lg. Straight:" + p.lgStraight + "   |");
+		System.out.println("|  3 of a kind: " + p.sPrint(7) + "  | 4 of a kind:" + p.sPrint(8) + "  | Full House: "
+				+ p.sPrint(9) + "  | Sm. Straight: " + p.sPrint(10) + "  | Lg. Straight:" + p.sPrint(11) + "   |");
 		System.out.println(
 				"|-------------------------------------------------------------------------------------------|");
-		System.out.println("|  YAHTZEE: " + p.Yahtzee + " |   Chance: " + p.chance
+		System.out.println("|  YAHTZEE: " + p.sPrint(12) + " |   Chance: " + p.sPrint(13)
 				+ "                                                                |");
 		System.out.println(
 				"---------------------------------------------------------------------------------------------");
 	}
-
 }

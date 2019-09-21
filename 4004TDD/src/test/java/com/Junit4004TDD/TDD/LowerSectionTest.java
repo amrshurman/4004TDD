@@ -72,7 +72,7 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> NewDiceGroup= dc.sequence(DiceGroup);
 		assertEquals(NewDiceGroup.size(),4); //size of group should be 4
 	}
-	public void testSmallSeq3() { //should take 1,2,3,4,5
+	public void testlongSeq() { //should take 1,2,3,4,5
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();

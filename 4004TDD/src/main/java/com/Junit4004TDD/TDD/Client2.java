@@ -38,36 +38,7 @@ public class Client2 {
 			    	 System.exit(1);
 			     }
 			     p.round++;
-				int count = 2;
-				Scanner s1 = new Scanner(System.in);
-				String o = "";
-				String choice = "";
-				dg.printDice();
-				dg.suggestions(p);
-				while (!o.equals("3")) {
-					if (count!=0) {
-						System.out.println(
-								"Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
-						System.out.println("Type (2) to reroll all the dice. ("+ count + " tries left.) ");
-						System.out.println("Type (3) to score this round");
-						o = s1.nextLine();
-						}
-						if (o.equals("1")&&(count>0)) {
-								dg.rollAndKeep();
-								dg.suggestions(p);
-								count--;
-						}
-						if (o.equals("2")&&(count>0)) {
-							dg.groupRoll();
-							dg.printDice();
-							dg.suggestions(p);
-							count--;
-					} else if (o.equals("3") || (count==0)) {
-							choice = dg.inputChoice(p);
-							count=2;
-							break;
-						}
-				}
+				String choice=dg.rollKeepInput(p);
 				Socket ssocket = new Socket("localhost", 2223); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				String d = dg.convertList();

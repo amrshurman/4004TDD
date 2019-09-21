@@ -19,7 +19,7 @@ public class Server {
 			String str = (String) dis.readUTF();
 			System.out.println("Established connection with Player 1: " + str);
 			p1 = new Player(str);
-			
+			rs.close();
 			System.out.println("Waiting for Player 2 to connect with the server...");
 			rs = new ServerSocket(1111); // receiving socket
 			s = rs.accept();// establishes connection
@@ -27,7 +27,7 @@ public class Server {
 			str = (String) dis.readUTF();
 			System.out.println("Established connection with Player 2: " + str);
 			p2 = new Player(str);
-			
+			rs.close();
 			System.out.println("Waiting for Player 3 to connect with the server...");
 			rs = new ServerSocket(4444); // receiving socket
 			s = rs.accept();// establishes connection
@@ -58,8 +58,20 @@ public class Server {
 				Socket s = rs.accept();// establishes connection
 				DataInputStream dis = new DataInputStream(s.getInputStream());
 				String str = (String) dis.readUTF();
-				String choice = String.valueOf(str.charAt(0))+String.valueOf(str.charAt(1));
-				String d = String.valueOf(str.charAt(2))+String.valueOf(str.charAt(3))+String.valueOf(str.charAt(4))+String.valueOf(str.charAt(5))+String.valueOf(str.charAt(6));
+				String choice="";
+				String d="";
+				if (str.length()==7) {
+				choice = String.valueOf(str.charAt(0))+String.valueOf(str.charAt(1));
+				}
+				else {
+					 choice = String.valueOf(str.charAt(0));
+				}
+				if (str.length()==6) {
+				d = String.valueOf(str.charAt(1))+String.valueOf(str.charAt(2))+String.valueOf(str.charAt(3))+String.valueOf(str.charAt(4))+String.valueOf(str.charAt(5));
+				}
+				else {
+					d = String.valueOf(str.charAt(2))+String.valueOf(str.charAt(3))+String.valueOf(str.charAt(4))+String.valueOf(str.charAt(5))+String.valueOf(str.charAt(6));
+				}
 				System.out.println("Recieved output from Player 1: ");
 				p1.dg.convertString(d);
 				p1.dg.pickDice(p1);
@@ -85,8 +97,20 @@ public class Server {
 				Socket s = rs.accept();// establishes connection
 				DataInputStream dis = new DataInputStream(s.getInputStream());
 				String str = (String) dis.readUTF();
-				String choice = String.valueOf(str.charAt(0))+String.valueOf(str.charAt(1));
-				String d = String.valueOf(str.charAt(2))+String.valueOf(str.charAt(3))+String.valueOf(str.charAt(4))+String.valueOf(str.charAt(5))+String.valueOf(str.charAt(6));
+				String choice="";
+				String d="";
+				if (str.length()==7) {
+				choice = String.valueOf(str.charAt(0))+String.valueOf(str.charAt(1));
+				}
+				else {
+					 choice = String.valueOf(str.charAt(0));
+				}
+				if (str.length()==6) {
+				d = String.valueOf(str.charAt(1))+String.valueOf(str.charAt(2))+String.valueOf(str.charAt(3))+String.valueOf(str.charAt(4))+String.valueOf(str.charAt(5));
+				}
+				else {
+					d = String.valueOf(str.charAt(2))+String.valueOf(str.charAt(3))+String.valueOf(str.charAt(4))+String.valueOf(str.charAt(5))+String.valueOf(str.charAt(6));
+				}
 				System.out.println("Recieved output from Player 2: ");
 				p2.dg.convertString(d);
 				p2.dg.pickDice(p2);
@@ -112,8 +136,20 @@ public class Server {
 				Socket s = rs.accept();// establishes connection
 				DataInputStream dis = new DataInputStream(s.getInputStream());
 				String str = (String) dis.readUTF();
-				String choice = String.valueOf(str.charAt(0))+String.valueOf(str.charAt(1));
-				String d = String.valueOf(str.charAt(2))+String.valueOf(str.charAt(3))+String.valueOf(str.charAt(4))+String.valueOf(str.charAt(5))+String.valueOf(str.charAt(6));
+				String choice="";
+				String d="";
+				if (str.length()==7) {
+				choice = String.valueOf(str.charAt(0))+String.valueOf(str.charAt(1));
+				}
+				else {
+					 choice = String.valueOf(str.charAt(0));
+				}
+				if (str.length()==6) {
+				d = String.valueOf(str.charAt(1))+String.valueOf(str.charAt(2))+String.valueOf(str.charAt(3))+String.valueOf(str.charAt(4))+String.valueOf(str.charAt(5));
+				}
+				else {
+					d = String.valueOf(str.charAt(2))+String.valueOf(str.charAt(3))+String.valueOf(str.charAt(4))+String.valueOf(str.charAt(5))+String.valueOf(str.charAt(6));
+				}
 				System.out.println("Recieved output from Player 3: ");
 				p3.dg.convertString(d);
 				p3.dg.pickDice(p3);

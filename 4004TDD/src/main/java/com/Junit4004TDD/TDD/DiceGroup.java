@@ -386,6 +386,38 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 		}
 	}
 
+	public String rollKeepInput(Player p) {
+		int count = 2;
+		Scanner s1 = new Scanner(System.in);
+		String o = "";
+		String choice = "";
+		printDice();
+		suggestions(p);
+		while (!o.equals("3")) {
+			if (count!=0) {
+				System.out.println(
+						"Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
+				System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
+				System.out.println("Type (3) to score this round");
+				o = s1.nextLine();
+				}
+				if (o.equals("1")&&(count>0)) {
+						rollAndKeep();
+						suggestions(p);
+						count--;
+				}
+				if (o.equals("2")&&(count>0)) {
+					groupRoll();
+					printDice();
+					suggestions(p);
+					count--;
+			} else if (o.equals("3") || (count==0)) {
+					choice = inputChoice(p);
+					count=2;
+					break;
+				}
+		}return choice;
+	}
 	public int sumUS(int x) {
 		int count = 0;
 		for (int i = 0; i < DiceGroup.size(); i++) {
