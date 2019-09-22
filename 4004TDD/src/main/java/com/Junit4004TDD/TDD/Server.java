@@ -166,6 +166,7 @@ public class Server {
 				System.out.println(e);
 			}
 			ss.roundDone(round);
+			System.out.println("");
 			round++;
 			if (p3.round==14) {
 			    	 ss.winner();
