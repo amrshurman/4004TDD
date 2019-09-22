@@ -44,7 +44,9 @@ public class Server {
 		p3.round=0;
 		while (true) {
 			try {
+				if (p3.round!=14) {
 				p3.round++;
+				}
 				Socket ssocket = new Socket("localhost", 9999); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				System.out.println("Notifying player 1 to start:");
@@ -83,7 +85,9 @@ public class Server {
 			}
 			
 			try {
+				if (p3.round!=14) {
 				p1.round++;
+				}
 				Socket ssocket = new Socket("localhost", 2222); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				System.out.println("Notifying player 2 to start:");
@@ -122,7 +126,9 @@ public class Server {
 			}
 			
 			try {
+				if (p3.round!=14) {
 				p2.round++;
+				}
 				Socket ssocket = new Socket("localhost", 3333); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				System.out.println("Notifying player 3 to start:");

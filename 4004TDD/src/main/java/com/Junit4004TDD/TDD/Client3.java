@@ -39,7 +39,7 @@ public class Client3 {
 					ss.winner();
 					Socket ssocket = new Socket("localhost", 3334); // sending socket
 					DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
-					dout.writeUTF("q");
+					dout.writeUTF("qqqqqqq");
 					System.exit(1);
 				}
 				p.round++;

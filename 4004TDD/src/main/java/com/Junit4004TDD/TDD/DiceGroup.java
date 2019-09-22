@@ -225,14 +225,14 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
 		System.out.println(
-				"Type (1) to scratch aces value. Type (2) to scratch twos value. Type (3) to scratch threes value.");
+				"Type (1) to score in ones. Type (2) to score in twos. Type (3) to score in threes.");
 		System.out.println(
-				"Type (4) to scratch fours value. Type (5) to scratch fives value. Type (6) to scratch sixes value.");
+				"Type (4) to score fours value. Type (5) to scratch fives value. Type (6) to score in sixes.");
 		System.out.println(
-				"Type (7) to scratch 3 of a kind value. Type (8) to scratch 4 of a kind value. Type (9) to scratch");
+				"Type (7) to score 3 of a kind value. Type (8) to score 4 of a kind value. Type (9) to score");
 		System.out.println(
-				"Full House value. Type (10) to scratch small straight value. Type (11) to scratch long straight value.");
-		System.out.println("Type (12) to scratch YAHTZEE value. Type (13) to scratch chance value.");
+				" in Full House. Type (10) to score in small straight. Type (11) to score in long straight.");
+		System.out.println("Type (12) to score in YAHTZEE. Type (13) to score in chance.");
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
 		Scanner s = new Scanner(System.in);
