@@ -197,7 +197,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 		}
 		if (sequence(DiceGroup).size() == 4) {
 			sseq = true;
-			System.out.print("This group has a small sequence with the numbers: ");
+			System.out.print("This group has a small straight with the numbers: ");
 			for (int i = 0; i < sequence(DiceGroup).size(); i++) {
 				System.out.print(sequence(DiceGroup).get(i).getNumber() + " ");
 			}
@@ -205,7 +205,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 		}
 		if (sequence(DiceGroup).size() == 5) {
 			lseq = true;
-			System.out.print("This group has a long sequence with the numbers: ");
+			System.out.print("This group has a long straight with the numbers: ");
 			for (int i = 0; i < sequence(DiceGroup).size(); i++) {
 				System.out.print(sequence(DiceGroup).get(i).getNumber() + " ");
 			}
