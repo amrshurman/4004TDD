@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 public class UpperSectionTest extends TestCase{
 
-	public void testCheckUpperAddition() { //should take one and store in aces section as 2.
+	public void testCheckUpperAddition() { //should take ones and store in ones section as 2.
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
