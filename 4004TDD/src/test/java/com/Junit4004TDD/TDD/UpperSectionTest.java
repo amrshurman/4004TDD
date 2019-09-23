@@ -31,7 +31,7 @@ public class UpperSectionTest extends TestCase{
 		p1.set(2, p1.dg.sumUS(2));
 		assertEquals(p1.twos,4);
 	}
-	public void testCheckUpperAddition3() { 
+	public void testCheckUpperAddition3() { //tests scoring for threes
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
@@ -43,7 +43,7 @@ public class UpperSectionTest extends TestCase{
 		p1.set(3, p1.dg.sumUS(3));
 		assertEquals(p1.threes,6);
 	}
-	public void testCheckUpperAddition4() { 
+	public void testCheckUpperAddition4() { //tests scoring for fours
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
@@ -55,7 +55,7 @@ public class UpperSectionTest extends TestCase{
 		p1.set(4, p1.dg.sumUS(4));
 		assertEquals(p1.fours,4);
 	}
-	public void testCheckUpperAddition5() { 
+	public void testCheckUpperAddition5() {  //tests scoring for fives
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
@@ -67,7 +67,7 @@ public class UpperSectionTest extends TestCase{
 		p1.set(5, p1.dg.sumUS(5));
 		assertEquals(p1.fives,15);
 	}
-	public void testCheckUpperAddition6() { 
+	public void testCheckUpperAddition6() { //tests scoring for sixes
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
