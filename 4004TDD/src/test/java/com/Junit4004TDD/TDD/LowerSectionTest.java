@@ -8,10 +8,11 @@ public class LowerSectionTest extends TestCase{
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
+		Dice d4 = new Dice();
 		
-		d1.setNumber(2); d2.setNumber(2); d3.setNumber(2);
+		d1.setNumber(2); d2.setNumber(2); d3.setNumber(2);d4.setNumber(3);
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
-		DiceGroup.add(d1);DiceGroup.add(d2); DiceGroup.add(d3); 
+		DiceGroup.add(d1);DiceGroup.add(d2); DiceGroup.add(d3); DiceGroup.add(d4); 
 		DiceGroup dc= new DiceGroup();
 		ArrayList<Dice> NewDiceGroup= dc.OfKind(DiceGroup);
 		assertEquals(NewDiceGroup.size(),3); //size of group should be 3
@@ -21,10 +22,11 @@ public class LowerSectionTest extends TestCase{
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
 		Dice d4 = new Dice();
+		Dice d5 = new Dice();
 		
-		d1.setNumber(2); d2.setNumber(2); d3.setNumber(2);d4.setNumber(2);
+		d1.setNumber(2); d2.setNumber(2); d3.setNumber(2);d4.setNumber(2);d5.setNumber(5);
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
-		DiceGroup.add(d1);DiceGroup.add(d2); DiceGroup.add(d3); DiceGroup.add(d4); 
+		DiceGroup.add(d1);DiceGroup.add(d2); DiceGroup.add(d3); DiceGroup.add(d4); DiceGroup.add(d5); 
 		DiceGroup dc= new DiceGroup();
 		ArrayList<Dice> NewDiceGroup= dc.OfKind(DiceGroup);
 		assertEquals(NewDiceGroup.size(),4); //size of group should be 4
