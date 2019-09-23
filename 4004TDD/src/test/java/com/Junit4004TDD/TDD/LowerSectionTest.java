@@ -68,7 +68,7 @@ public class LowerSectionTest extends TestCase{
 		Dice d5 = new Dice();
 		
 		//should take 1,2,3,4
-		d1.setNumber(1); d2.setNumber(3); d3.setNumber(4);d4.setNumber(5);d5.setNumber(6);
+		d1.setNumber(1); d2.setNumber(2); d3.setNumber(4);d4.setNumber(3);d5.setNumber(6);
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2); DiceGroup.add(d3); DiceGroup.add(d4); DiceGroup.add(d5); 
 		DiceGroup dc= new DiceGroup();
