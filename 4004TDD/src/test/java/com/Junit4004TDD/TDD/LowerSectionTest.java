@@ -60,20 +60,30 @@ public class LowerSectionTest extends TestCase{
 		ArrayList<Dice> NewDiceGroup= dc.sequence(DiceGroup);
 		assertEquals(NewDiceGroup.size(),4); //size of group should be 4
 	}
-	public void testSmallSeq2() { //should take 1,2,3,4
-		Dice d1 = new Dice();
+	public void testSmallSeq2() { //test end and middle small straight 
+		Dice d1 = new Dice(); 
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
 		Dice d4 = new Dice();
 		Dice d5 = new Dice();
 		
+		//should take 1,2,3,4
 		d1.setNumber(1); d2.setNumber(3); d3.setNumber(4);d4.setNumber(5);d5.setNumber(6);
 		ArrayList<Dice> DiceGroup = new ArrayList<Dice>();
 		DiceGroup.add(d1);DiceGroup.add(d2); DiceGroup.add(d3); DiceGroup.add(d4); DiceGroup.add(d5); 
 		DiceGroup dc= new DiceGroup();
 		ArrayList<Dice> NewDiceGroup= dc.sequence(DiceGroup);
-		assertEquals(NewDiceGroup.size(),4); //size of group should be 4
+		assertEquals(NewDiceGroup.size(),4); //size of group should be 4 for 1,2,3,4
+		
+		//should take 2,3,4,5
+		d1.setNumber(2); d2.setNumber(3); d3.setNumber(4);d4.setNumber(5);d5.setNumber(2);
+		ArrayList<Dice> DiceGroup2 = new ArrayList<Dice>();
+		DiceGroup.add(d1);DiceGroup.add(d2); DiceGroup.add(d3); DiceGroup.add(d4); DiceGroup.add(d5); 
+		DiceGroup dc2= new DiceGroup();
+		ArrayList<Dice> NewDiceGroup2= dc.sequence(DiceGroup);
+		assertEquals(NewDiceGroup2.size(),4); //size of group should be 4
 	}
+
 	public void testlongSeq() { //should take 1,2,3,4,5
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
