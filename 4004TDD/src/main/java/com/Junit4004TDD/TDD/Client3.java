@@ -11,8 +11,17 @@ public class Client3 {
 			Socket ssocket = new Socket("localhost", 4444); // sending socket
 			DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 			System.out.println("Enter your name and press enter to connect to the server:");
+			String choice="";
+			if (args.length>0) {
+			if (args[0].equals("test")) {
+				choice = "Rob";
+				System.out.println("Rob");
+			}
+			}
+			else {
 			Scanner s = new Scanner(System.in);
-			String choice = s.nextLine();
+			choice = s.nextLine();
+			}
 			dout.writeUTF(choice);
 			dout.flush();
 			dout.close();
