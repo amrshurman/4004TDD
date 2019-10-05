@@ -41,7 +41,7 @@ assertEquals(p1.ss.p1.fullHouse,25);
 assertEquals(p1.ss.p1.smStraight,30);
 assertEquals(p1.ss.p1.lgStraight,40);
 assertEquals(p1.ss.p1.Yahtzee,50);
-
+assertTrue(p1.ss.p1.chance!=0);
 	}
 
 }

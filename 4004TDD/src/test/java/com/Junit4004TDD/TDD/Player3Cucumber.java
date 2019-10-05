@@ -40,6 +40,7 @@ public class Player3Cucumber extends TestCase{
 		assertEquals(p3.ss.p3.smStraight,30);
 		assertEquals(p3.ss.p3.lgStraight,40);
 		assertEquals(p3.ss.p3.Yahtzee,150);
+		assertTrue(p3.ss.p3.chance!=0);
 	}
 
 }
