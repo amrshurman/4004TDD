@@ -26,7 +26,7 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 	boolean fhSet = false;
 	boolean ySet = false;
 	boolean chanceSet = false;
-
+int testPick=1;
 	public DiceGroup() { // initializes the total 5 dice
 		for (int i = 0; i < 5; i++) {
 			Dice d = new Dice();
@@ -252,7 +252,9 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 		System.out.println("Type (12) to score in YAHTZEE. Type (13) to score in chance.");
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
-		String choice = String.valueOf(p.round);
+		String choice = String.valueOf(testPick);
+		System.out.println(testPick);
+		testPick++;
 		return choice;
 	}
 
@@ -440,25 +442,22 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 
 	public void rigDice(Player p) {
 		ArrayList<Dice> dg = new ArrayList<Dice>();
-		if ((p.round > 0) || (p.round < 7)) {
-			for (int i = 0; i < 5; i++) {
+		if ((testPick > 0) || (testPick < 7)) {
+			for (int i = 1; i < 7; i++) {
 				Dice d = new Dice();
-				d.setNumber(i);
-				;
+				d.setNumber(testPick);
 				dg.add(d);
 			}
 			this.DiceGroup = dg;
 		}
-		if (p.round == 7) {
+		if (testPick == 7) {
 			for (int i = 0; i < 3; i++) {
 				Dice d = new Dice();
 				d.setNumber(3);
-				;
 				dg.add(d);
 			}
 			Dice d = new Dice();
 			d.setNumber(1);
-			;
 			dg.add(d);
 			Dice d2 = new Dice();
 			d2.setNumber(2);
@@ -470,12 +469,10 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 			for (int i = 0; i < 4; i++) {
 				Dice d = new Dice();
 				d.setNumber(4);
-				;
 				dg.add(d);
 			}
 			Dice d = new Dice();
 			d.setNumber(1);
-			;
 			dg.add(d);
 			this.DiceGroup = dg;
 		}
@@ -483,16 +480,13 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 			for (int i = 0; i < 4; i++) {
 				Dice d = new Dice();
 				d.setNumber(2);
-				;
 				dg.add(d);
 			}
 			Dice d = new Dice();
 			Dice d2 = new Dice();
 			d.setNumber(1);
-			;
 			dg.add(d);
 			d2.setNumber(1);
-			;
 			dg.add(d2);
 			this.DiceGroup = dg;
 		}
