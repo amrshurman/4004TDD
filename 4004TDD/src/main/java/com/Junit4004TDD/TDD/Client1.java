@@ -52,7 +52,7 @@ public class Client1 {
 			     p.round++;
 			     String choice="";
 			     if (args.length>0) {
-			    	 choice=dg.rollKeepInputTest(p);
+			    	 choice=dg.rollKeepInputTest(p,ss.p1.round);
 			     }
 			     else {
 			     choice=dg.rollKeepInput(p);

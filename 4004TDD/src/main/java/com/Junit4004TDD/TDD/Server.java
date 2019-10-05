@@ -9,6 +9,10 @@ public class Server {
 		Player p1 = new Player("null");
 		Player p2 = new Player("null");
 		Player p3 = new Player("null");
+		String test=null;
+		if (args.length>0) {
+		test=args[0];
+		}
 		ScoreSheet ss = new ScoreSheet(p1, p2, p3);
 		int round=1;
 		try {

@@ -239,7 +239,7 @@ int testPick=1;
 		return choice;
 	}
 
-	public String inputChoiceTest(Player p) {
+	public String inputChoiceTest(Player p,int i) {
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
 		System.out.println("Type (1) to score in ones. Type (2) to score in twos. Type (3) to score in threes.");
@@ -252,9 +252,9 @@ int testPick=1;
 		System.out.println("Type (12) to score in YAHTZEE. Type (13) to score in chance.");
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
-		String choice = String.valueOf(testPick);
-		System.out.println(testPick);
-		testPick++;
+		String choice = String.valueOf(i);
+		System.out.println(i);
+		testPick=i;
 		return choice;
 	}
 
@@ -425,7 +425,8 @@ int testPick=1;
 		return choice;
 	}
 
-	public String rollKeepInputTest(Player p) {
+	public String rollKeepInputTest(Player p,int i) {
+		testPick=i;
 		int count = 2;
 		Scanner s1 = new Scanner(System.in);
 		String choice = "";
@@ -436,14 +437,14 @@ int testPick=1;
 		System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
 		System.out.println("Type (3) to score this round");
 		System.out.println("3");
-		choice = inputChoiceTest(p);
+		choice = inputChoiceTest(p,i);
 		return choice;
 	}
 
-	public void rigDice(Player p) {
+	public void rigDice(Player p) {//System.out.println(testPick);
 		ArrayList<Dice> dg = new ArrayList<Dice>();
-		if ((testPick > 0) || (testPick < 7)) {
-			for (int i = 1; i < 7; i++) {
+		if ((testPick > 0) && (testPick < 7)) {
+			for (int i = 0; i < 5; i++) {
 				Dice d = new Dice();
 				d.setNumber(testPick);
 				dg.add(d);
@@ -465,7 +466,7 @@ int testPick=1;
 			dg.add(d2);
 			this.DiceGroup = dg;
 		}
-		if (p.round == 8) {
+		if (testPick == 8) {
 			for (int i = 0; i < 4; i++) {
 				Dice d = new Dice();
 				d.setNumber(4);
@@ -476,8 +477,8 @@ int testPick=1;
 			dg.add(d);
 			this.DiceGroup = dg;
 		}
-		if (p.round == 9) {
-			for (int i = 0; i < 4; i++) {
+		if (testPick == 9) {
+			for (int i = 0; i < 3; i++) {
 				Dice d = new Dice();
 				d.setNumber(2);
 				dg.add(d);
@@ -490,45 +491,43 @@ int testPick=1;
 			dg.add(d2);
 			this.DiceGroup = dg;
 		}
-		if (p.round == 10) {
+		if (testPick == 10) {
 			Dice d = new Dice();
 			Dice d2 = new Dice();
 			Dice d3 = new Dice();
 			Dice d4 = new Dice();
 			Dice d5 = new Dice();
-			d.setNumber(2);
-			dg.add(d);
 			d.setNumber(1);
 			dg.add(d);
 			d2.setNumber(2);
 			dg.add(d2);
 			d3.setNumber(3);
-			dg.add(d);
+			dg.add(d3);
 			d4.setNumber(4);
-			dg.add(d);
+			dg.add(d4);
 			d5.setNumber(1);
+			dg.add(d5);
 			this.DiceGroup = dg;
 		}
-		if (p.round == 11) {
+		if (testPick == 11) {
 			Dice d = new Dice();
 			Dice d2 = new Dice();
 			Dice d3 = new Dice();
 			Dice d4 = new Dice();
 			Dice d5 = new Dice();
-			d.setNumber(2);
-			dg.add(d);
 			d.setNumber(1);
 			dg.add(d);
 			d2.setNumber(2);
 			dg.add(d2);
 			d3.setNumber(3);
-			dg.add(d);
+			dg.add(d3);
 			d4.setNumber(4);
-			dg.add(d);
+			dg.add(d4);
 			d5.setNumber(5);
+			dg.add(d5);
 			this.DiceGroup = dg;
 		}
-		if (p.round==13) {
+		if (testPick==12) {
 			for (int i = 0; i < 5; i++) {
 				Dice d = new Dice();
 				d.setNumber(6);

@@ -15,7 +15,8 @@ public class ServerCucumber extends TestCase{
 	
 	@Given("I am playing Yahtzee")
 	public void i_am_playing_Yahtzee() throws UnknownHostException, IOException {
-		String[] args=null;
+		String[] args=new String[1];
+		args[0]="test";
 		s.main(args);
 	}
 
