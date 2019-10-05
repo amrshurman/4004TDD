@@ -13,20 +13,20 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 	boolean fh = false;
 	boolean y = false;
 
-	boolean onesSet=false;
-	boolean twosSet=false;
-	boolean threesSet=false;
-	boolean foursSet=false;
-	boolean fivesSet=false;
-	boolean sixesSet=false;
+	boolean onesSet = false;
+	boolean twosSet = false;
+	boolean threesSet = false;
+	boolean foursSet = false;
+	boolean fivesSet = false;
+	boolean sixesSet = false;
 	boolean threeKSet = false;
 	boolean fourKSet = false;
 	boolean sseqSet = false;
 	boolean lseqSet = false;
 	boolean fhSet = false;
 	boolean ySet = false;
-	boolean chanceSet=false;
-	
+	boolean chanceSet = false;
+
 	public DiceGroup() { // initializes the total 5 dice
 		for (int i = 0; i < 5; i++) {
 			Dice d = new Dice();
@@ -49,13 +49,13 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 	}
 
 	public void printDice() {
-	//	System.out.println("-----------------------------------------------");
+		// System.out.println("-----------------------------------------------");
 		System.out.println("You rolled:");
 		System.out.println(" (1)       (2)       (3)       (4)       (5)");
 		System.out.println("-----     -----     -----     -----     -----");
 		System.out.println("| " + DiceGroup.get(0).getNumber() + " |     | " + DiceGroup.get(1).getNumber()
 				+ " |     | " + DiceGroup.get(2).getNumber() + " |     | " + DiceGroup.get(3).getNumber() + " |     | "
-				+ DiceGroup.get(4).getNumber()+ " |");
+				+ DiceGroup.get(4).getNumber() + " |");
 		System.out.println("-----     -----     -----     -----     -----");
 
 		System.out.println("-----------------------------------------------");
@@ -224,14 +224,13 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 	public String inputChoice(Player p) {
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
-		System.out.println(
-				"Type (1) to score in ones. Type (2) to score in twos. Type (3) to score in threes.");
-		System.out.println(
-				"Type (4) to score fours value. Type (5) to scratch fives value. Type (6) to score in sixes.");
-		System.out.println(
-				"Type (7) to score 3 of a kind value. Type (8) to score 4 of a kind value. Type (9) to score");
-		System.out.println(
-				" in Full House. Type (10) to score in small straight. Type (11) to score in long straight.");
+		System.out.println("Type (1) to score in ones. Type (2) to score in twos. Type (3) to score in threes.");
+		System.out
+				.println("Type (4) to score fours value. Type (5) to scratch fives value. Type (6) to score in sixes.");
+		System.out
+				.println("Type (7) to score 3 of a kind value. Type (8) to score 4 of a kind value. Type (9) to score");
+		System.out
+				.println(" in Full House. Type (10) to score in small straight. Type (11) to score in long straight.");
 		System.out.println("Type (12) to score in YAHTZEE. Type (13) to score in chance.");
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
@@ -240,148 +239,153 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 		return choice;
 	}
 
+	public String inputChoiceTest(Player p) {
+		System.out.println(
+				"-----------------------------------------------------------------------------------------------------");
+		System.out.println("Type (1) to score in ones. Type (2) to score in twos. Type (3) to score in threes.");
+		System.out
+				.println("Type (4) to score fours value. Type (5) to scratch fives value. Type (6) to score in sixes.");
+		System.out
+				.println("Type (7) to score 3 of a kind value. Type (8) to score 4 of a kind value. Type (9) to score");
+		System.out
+				.println(" in Full House. Type (10) to score in small straight. Type (11) to score in long straight.");
+		System.out.println("Type (12) to score in YAHTZEE. Type (13) to score in chance.");
+		System.out.println(
+				"-----------------------------------------------------------------------------------------------------");
+		String choice = String.valueOf(p.round);
+		return choice;
+	}
+
 	public void scoreSetter(Player p, String choice) {
 		if (choice.equals("1")) {
-			if (onesSet==false) {
-			p.set(1, sumUS(1));
-			onesSet=true;
-			}
-			else {
+			if (onesSet == false) {
+				p.set(1, sumUS(1));
+				onesSet = true;
+			} else {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
+				scoreSetter(p, inputChoice(p));
 			}
 		}
 		if (choice.equals("2")) {
-			if (twosSet==false) {
-			p.set(2, sumUS(2));
-			twosSet=true;
-			}
-			else {
+			if (twosSet == false) {
+				p.set(2, sumUS(2));
+				twosSet = true;
+			} else {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
+				scoreSetter(p, inputChoice(p));
 			}
 		}
 		if (choice.equals("3")) {
-			if (threesSet==false) {
-			p.set(3, sumUS(3));
-			threesSet=true;
-			}
-			else {
+			if (threesSet == false) {
+				p.set(3, sumUS(3));
+				threesSet = true;
+			} else {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
+				scoreSetter(p, inputChoice(p));
 			}
 		}
 		if (choice.equals("4")) {
-			if (foursSet==false) {
-			p.set(4, sumUS(4));
-			foursSet=true;
-			}
-			else {
+			if (foursSet == false) {
+				p.set(4, sumUS(4));
+				foursSet = true;
+			} else {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
+				scoreSetter(p, inputChoice(p));
 			}
 		}
 		if (choice.equals("5")) {
-			if (fivesSet==false) {
-			p.set(5, sumUS(5));
-			fivesSet=true;
-			}
-			else {
+			if (fivesSet == false) {
+				p.set(5, sumUS(5));
+				fivesSet = true;
+			} else {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
+				scoreSetter(p, inputChoice(p));
 			}
 		}
 		if (choice.equals("6")) {
-			if (sixesSet==false) {
-			p.set(6, sumUS(6));
-			sixesSet=true;
-			}
-			else {
+			if (sixesSet == false) {
+				p.set(6, sumUS(6));
+				sixesSet = true;
+			} else {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
+				scoreSetter(p, inputChoice(p));
 			}
 		}
 		if (choice.equals("7")) {
-			if ((threeK == true)&&(threeKSet==false)) {
+			if ((threeK == true) && (threeKSet == false)) {
 				p.set(7, p.dg.getTotal(DiceGroup));
 				threeK = false;
-				threeKSet=true;
-			}
-			else if (threeKSet==true){
+				threeKSet = true;
+			} else if (threeKSet == true) {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
-			}else {
+				scoreSetter(p, inputChoice(p));
+			} else {
 				p.set(7, 0);
 			}
 		}
 		if (choice.equals("8")) {
-			if ((fourK == true)&&(fourKSet==false)) {
+			if ((fourK == true) && (fourKSet == false)) {
 				p.set(8, p.dg.getTotal(DiceGroup));
 				fourK = false;
-				fourKSet=true;
-			}
-			else if (fourKSet==true){
+				fourKSet = true;
+			} else if (fourKSet == true) {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
-			}else {
+				scoreSetter(p, inputChoice(p));
+			} else {
 				p.set(8, 0);
 			}
 		}
 		if (choice.equals("9")) {
-			if ((fh == true)&&(fhSet==false)) {
+			if ((fh == true) && (fhSet == false)) {
 				p.set(9, 25);
 				fh = false;
-				fhSet=true;
-			}
-			else if (fhSet==true){
+				fhSet = true;
+			} else if (fhSet == true) {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
-			}else {
+				scoreSetter(p, inputChoice(p));
+			} else {
 				p.set(9, 0);
 			}
 		}
 		if (choice.equals("10")) {
-			if ((sseq == true)&&(sseqSet==false)) {
+			if ((sseq == true) && (sseqSet == false)) {
 				p.set(10, 30);
 				sseq = false;
-				sseqSet=true;
-			} 
-			else if (sseqSet==true){
+				sseqSet = true;
+			} else if (sseqSet == true) {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
-			}else {
+				scoreSetter(p, inputChoice(p));
+			} else {
 				p.set(10, 0);
 			}
 		}
 		if (choice.equals("11")) {
-			if ((lseq == true)&&(lseqSet==false)) {
+			if ((lseq == true) && (lseqSet == false)) {
 				p.set(11, 40);
 				lseq = false;
-				lseqSet=true;
-			} 
-			else if (lseqSet==true){
+				lseqSet = true;
+			} else if (lseqSet == true) {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
-			}else {
+				scoreSetter(p, inputChoice(p));
+			} else {
 				p.set(11, 0);
 			}
 		}
 		if (choice.equals("12")) {
 			if (y == true) {
-				p.setY(12, 50,DiceGroup.get(0).getNumber());
+				p.setY(12, 50, DiceGroup.get(0).getNumber());
 				y = false;
 			} else {
-				p.setY(12, 0,DiceGroup.get(0).getNumber());
+				p.setY(12, 0, DiceGroup.get(0).getNumber());
 			}
 		}
 		if (choice.equals("13")) {
-			if (chanceSet==false) {
-			p.set(13, p.dg.getTotal(DiceGroup));
-			chanceSet=true;
-			}
-			else {
+			if (chanceSet == false) {
+				p.set(13, p.dg.getTotal(DiceGroup));
+				chanceSet = true;
+			} else {
 				System.out.println("You cannot select this value because you already set the value here.");
-				scoreSetter(p,inputChoice(p));
+				scoreSetter(p, inputChoice(p));
 			}
 		}
 	}
@@ -394,30 +398,153 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 		printDice();
 		suggestions(p);
 		while (!o.equals("3")) {
-			if (count!=0) {
-				System.out.println(
-						"Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
+			if (count != 0) {
+				System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
 				System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
 				System.out.println("Type (3) to score this round");
 				o = s1.nextLine();
-				}
-				if (o.equals("1")&&(count>0)) {
-						rollAndKeep();
-						suggestions(p);
-						count--;
-				}
-				if (o.equals("2")&&(count>0)) {
-					groupRoll();
-					printDice();
-					suggestions(p);
-					count--;
-			} else if (o.equals("3") || (count==0)) {
-					choice = inputChoice(p);
-					count=2;
-					break;
-				}
-		}return choice;
+			}
+			if (o.equals("1") && (count > 0)) {
+				rollAndKeep();
+				suggestions(p);
+				count--;
+			}
+			if (o.equals("2") && (count > 0)) {
+				groupRoll();
+				printDice();
+				suggestions(p);
+				count--;
+			} else if (o.equals("3") || (count == 0)) {
+				choice = inputChoice(p);
+				count = 2;
+				break;
+			}
+		}
+		return choice;
 	}
+
+	public String rollKeepInputTest(Player p) {
+		int count = 2;
+		Scanner s1 = new Scanner(System.in);
+		String choice = "";
+		rigDice(p);
+		printDice();
+		suggestions(p);
+		System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
+		System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
+		System.out.println("Type (3) to score this round");
+		System.out.println("3");
+		choice = inputChoiceTest(p);
+		return choice;
+	}
+
+	public void rigDice(Player p) {
+		ArrayList<Dice> dg = new ArrayList<Dice>();
+		if ((p.round > 0) || (p.round < 7)) {
+			for (int i = 0; i < 5; i++) {
+				Dice d = new Dice();
+				d.setNumber(i);
+				;
+				dg.add(d);
+			}
+			this.DiceGroup = dg;
+		}
+		if (p.round == 7) {
+			for (int i = 0; i < 3; i++) {
+				Dice d = new Dice();
+				d.setNumber(3);
+				;
+				dg.add(d);
+			}
+			Dice d = new Dice();
+			d.setNumber(1);
+			;
+			dg.add(d);
+			Dice d2 = new Dice();
+			d2.setNumber(2);
+			;
+			dg.add(d2);
+			this.DiceGroup = dg;
+		}
+		if (p.round == 8) {
+			for (int i = 0; i < 4; i++) {
+				Dice d = new Dice();
+				d.setNumber(4);
+				;
+				dg.add(d);
+			}
+			Dice d = new Dice();
+			d.setNumber(1);
+			;
+			dg.add(d);
+			this.DiceGroup = dg;
+		}
+		if (p.round == 9) {
+			for (int i = 0; i < 4; i++) {
+				Dice d = new Dice();
+				d.setNumber(2);
+				;
+				dg.add(d);
+			}
+			Dice d = new Dice();
+			Dice d2 = new Dice();
+			d.setNumber(1);
+			;
+			dg.add(d);
+			d2.setNumber(1);
+			;
+			dg.add(d2);
+			this.DiceGroup = dg;
+		}
+		if (p.round == 10) {
+			Dice d = new Dice();
+			Dice d2 = new Dice();
+			Dice d3 = new Dice();
+			Dice d4 = new Dice();
+			Dice d5 = new Dice();
+			d.setNumber(2);
+			dg.add(d);
+			d.setNumber(1);
+			dg.add(d);
+			d2.setNumber(2);
+			dg.add(d2);
+			d3.setNumber(3);
+			dg.add(d);
+			d4.setNumber(4);
+			dg.add(d);
+			d5.setNumber(1);
+			this.DiceGroup = dg;
+		}
+		if (p.round == 11) {
+			Dice d = new Dice();
+			Dice d2 = new Dice();
+			Dice d3 = new Dice();
+			Dice d4 = new Dice();
+			Dice d5 = new Dice();
+			d.setNumber(2);
+			dg.add(d);
+			d.setNumber(1);
+			dg.add(d);
+			d2.setNumber(2);
+			dg.add(d2);
+			d3.setNumber(3);
+			dg.add(d);
+			d4.setNumber(4);
+			dg.add(d);
+			d5.setNumber(5);
+			this.DiceGroup = dg;
+		}
+		if (p.round==13) {
+			for (int i = 0; i < 5; i++) {
+				Dice d = new Dice();
+				d.setNumber(6);
+				;
+				dg.add(d);
+			}
+			this.DiceGroup = dg;
+		}
+	}
+
 	public int sumUS(int x) {
 		int count = 0;
 		for (int i = 0; i < DiceGroup.size(); i++) {
@@ -427,24 +554,27 @@ public class DiceGroup implements Serializable { // class for GROUP of dice
 		}
 		return count;
 	}
-public void readKeep(String s) {
-	ArrayList<Dice> dg = new ArrayList<Dice>();
-	for (int i=0;i<s.length();i+=2) {
-		int n=Character.getNumericValue(s.charAt(i));
-		if ((n>0)&&(n<6)) {
-			dg.add(DiceGroup.get(n-1));
+
+	public void readKeep(String s) {
+		ArrayList<Dice> dg = new ArrayList<Dice>();
+		for (int i = 0; i < s.length(); i += 2) {
+			int n = Character.getNumericValue(s.charAt(i));
+			if ((n > 0) && (n < 6)) {
+				dg.add(DiceGroup.get(n - 1));
+			}
 		}
-	} 
-	int x = dg.size();
-	for (int i=0;i<(5-x);i++) {
-		Dice d = new Dice(); //System.out.println(dg.size());
-		d.roll();
-		dg.add(d);
+		int x = dg.size();
+		for (int i = 0; i < (5 - x); i++) {
+			Dice d = new Dice(); // System.out.println(dg.size());
+			d.roll();
+			dg.add(d);
+		}
+		DiceGroup = dg;
 	}
-	DiceGroup = dg;
-}
+
 	public void rollAndKeep() {
-		System.out.println("Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
+		System.out.println(
+				"Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
 		for (int i = 0; i < DiceGroup.size(); i++) {
 			System.out.println("Position: (" + (i + 1) + ") :" + DiceGroup.get(i).getNumber());
 		}

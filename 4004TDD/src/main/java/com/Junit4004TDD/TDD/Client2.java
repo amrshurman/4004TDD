@@ -50,7 +50,13 @@ public class Client2 {
 			    	 System.exit(1);
 			     }
 			     p.round++;
-				String choice=dg.rollKeepInput(p);
+			     String choice="";
+			     if (args.length>0) {
+			    	 choice=dg.rollKeepInputTest(p);
+			     }
+			     else {
+			     choice=dg.rollKeepInput(p);
+			     }
 				Socket ssocket = new Socket("localhost", 2223); // sending socket
 				DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 				String d = dg.convertList();
