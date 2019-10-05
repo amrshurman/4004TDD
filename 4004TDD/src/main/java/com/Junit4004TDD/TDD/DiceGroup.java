@@ -253,6 +253,26 @@ int testPick=1;
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
 		String choice = String.valueOf(i);
+		if (p.name.equals("Rob")&&(i==6)) {
+			System.out.println(12);
+			return "12";
+		}
+		if (p.name.equals("Bob")&&(i==3)) {
+			System.out.println(5);
+			return "5";
+		}
+		if (p.name.equals("Bob")&&(i==5)) {
+			System.out.println(3);
+			return "3";
+		}
+		if (p.name.equals("Bob")&&(i==4)) {
+			System.out.println(6);
+			return "6";
+		}
+		if (p.name.equals("Bob")&&(i==6)) {
+			System.out.println(4);
+			return "4";
+		}
 		System.out.println(i);
 		testPick=i;
 		return choice;

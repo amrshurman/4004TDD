@@ -17,7 +17,8 @@ public class Player1Cucumber extends TestCase{
 	public void i_am_playing_Yahtzee() throws IOException {
 		String[] args=new String[1];
 		args[0]="test";
-		p1.main(args);
+		p1.main(args);	
+
 	}
 
 	@When("I connect player 1 to the server")
@@ -27,6 +28,19 @@ public class Player1Cucumber extends TestCase{
 
 	@Then("check that player 1 finishes game correctly")
 	public void check_that_correct_value_is_stored() {
+assertEquals(p1.ss.p1.aces,5);
+assertEquals(p1.ss.p1.twos,10);
+assertEquals(p1.ss.p1.threes,0);
+assertEquals(p1.ss.p1.fours,0);
+assertEquals(p1.ss.p1.fives,0);
+assertEquals(p1.ss.p1.sixes,0);
+assertEquals(p1.ss.p1.Bonus,0);
+assertEquals(p1.ss.p1.threeOfKind,12);
+assertEquals(p1.ss.p1.fourOfKind,17);
+assertEquals(p1.ss.p1.fullHouse,25);
+assertEquals(p1.ss.p1.smStraight,30);
+assertEquals(p1.ss.p1.lgStraight,40);
+assertEquals(p1.ss.p1.Yahtzee,50);
 
 	}
 

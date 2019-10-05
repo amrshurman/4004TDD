@@ -5,7 +5,7 @@ import java.net.*;
 import java.util.Scanner;
 
 public class Client3 {
-
+	static ScoreSheet ss = new ScoreSheet(null, null, null);
 	public static void main(String[] args) throws IOException {
 		try {
 			Socket ssocket = new Socket("localhost", 4444); // sending socket
@@ -37,7 +37,7 @@ public class Client3 {
 				Socket s = rs.accept();// establishes connection
 				System.out.println("It's your turn! Player 3: ");
 				ObjectInputStream is = new ObjectInputStream(s.getInputStream());
-				ScoreSheet ss = (ScoreSheet) is.readObject();
+				ss = (ScoreSheet) is.readObject();
 				DiceGroup dg = new DiceGroup();
 				Player p = new Player(ss.p3.name);
 				dg = ss.p3.dg;
@@ -49,6 +49,7 @@ public class Client3 {
 					Socket ssocket = new Socket("localhost", 3334); // sending socket
 					DataOutputStream dout = new DataOutputStream(ssocket.getOutputStream());
 					dout.writeUTF("qqqqqqq");
+					if (args.length>0) break;
 					System.exit(1);
 				}
 				p.round++;

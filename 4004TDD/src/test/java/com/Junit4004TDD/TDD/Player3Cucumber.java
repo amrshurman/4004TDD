@@ -27,7 +27,19 @@ public class Player3Cucumber extends TestCase{
 
 	@Then("check that player 3 finishes game correctly")
 	public void check_that_correct_value_is_stored() {
-
+		assertEquals(p3.ss.p3.aces,5);
+		assertEquals(p3.ss.p3.twos,10);
+		assertEquals(p3.ss.p3.threes,15);
+		assertEquals(p3.ss.p3.fours,20);
+		assertEquals(p3.ss.p3.fives,25);
+		assertEquals(p3.ss.p3.sixes,30);
+		assertEquals(p3.ss.p3.Bonus,35);
+		assertEquals(p3.ss.p3.threeOfKind,12);
+		assertEquals(p3.ss.p3.fourOfKind,17);
+		assertEquals(p3.ss.p3.fullHouse,25);
+		assertEquals(p3.ss.p3.smStraight,30);
+		assertEquals(p3.ss.p3.lgStraight,40);
+		assertEquals(p3.ss.p3.Yahtzee,150);
 	}
 
 }
