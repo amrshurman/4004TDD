@@ -154,16 +154,16 @@ int testPick=1;
 		if (OfKind(DiceGroup).size() == 3) {
 			threeK = true;
 		}
-		if (OfKind(DiceGroup).size() == 4) {
+		if (OfKind(DiceGroup).size() >= 4) {
 			fourK = true;
 		}
-		if (sequence(DiceGroup).size() == 4) {
+		if (sequence(DiceGroup).size() >= 4) {
 			sseq = true;
 		}
-		if (sequence(DiceGroup).size() == 5) {
+		if (sequence(DiceGroup).size() >= 5) {
 			lseq = true;
 		}
-		if (fullHouse(DiceGroup).size() > 0) {
+		if (fullHouse(DiceGroup).size() == 5) {
 			fh = true;
 		}
 	}
@@ -257,21 +257,53 @@ int testPick=1;
 			System.out.println(12);
 			return "12";
 		}
+		if (p.name.equals("Bob")&&(i==1)) {
+			System.out.println(6);
+			return "6";
+		}
+		if (p.name.equals("Bob")&&(i==2)) {
+			System.out.println(9);
+			return "9";
+		}
 		if (p.name.equals("Bob")&&(i==3)) {
-			System.out.println(5);
-			return "5";
+			System.out.println(7);
+			return "7";
 		}
 		if (p.name.equals("Bob")&&(i==5)) {
 			System.out.println(3);
 			return "3";
 		}
 		if (p.name.equals("Bob")&&(i==4)) {
-			System.out.println(6);
-			return "6";
+			System.out.println(2);
+			return "2";
 		}
 		if (p.name.equals("Bob")&&(i==6)) {
 			System.out.println(4);
 			return "4";
+		}
+		if (p.name.equals("Bob")&&(i==7)) {
+			System.out.println(11);
+			return "11";
+		}
+		if (p.name.equals("Bob")&&(i==8)) {
+			System.out.println(1);
+			return "1";
+		}
+		if (p.name.equals("Bob")&&(i==9)) {
+			System.out.println(5);
+			return "5";
+		}
+		if (p.name.equals("Bob")&&(i==10)) {
+			System.out.println(12);
+			return "12";
+		}
+		if (p.name.equals("Bob")&&(i==11)) {
+			System.out.println(8);
+			return "8";
+		}
+		if (p.name.equals("Bob")&&(i==12)) {
+			System.out.println(10);
+			return "10";
 		}
 		System.out.println(i);
 		testPick=i;
@@ -410,6 +442,12 @@ int testPick=1;
 				scoreSetter(p, inputChoice(p));
 			}
 		}
+		 threeK = false;
+		 fourK = false;
+		 sseq = false;
+		 lseq = false;
+		 fh = false;
+		 y = false;
 	}
 
 	public String rollKeepInput(Player p) {
@@ -446,6 +484,7 @@ int testPick=1;
 	}
 
 	public String rollKeepInputTest(Player p,int i) {
+		boolean t=false;
 		testPick=i;
 		int count = 2;
 		Scanner s1 = new Scanner(System.in);
@@ -456,7 +495,62 @@ int testPick=1;
 		System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
 		System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
 		System.out.println("Type (3) to score this round");
+		if ((i==10)&&p.name.equals("Tom")) {
+			System.out.println("1");
+			System.out.println(
+					"Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
+			for (int z = 0; z < DiceGroup.size(); z++) {
+				System.out.println("Position: (" + (z + 1) + ") :" + DiceGroup.get(z).getNumber());
+			}
+			count--;
+			System.out.println("1 2 4");
+			readKeep("1 2 4");
+			printDice();
+			suggestions(p);
+			System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
+			System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
+			System.out.println("Type (3) to score this round");
+		}
+		if ((i==9)&&p.name.equals("Tom")) {
+			System.out.println("2");
+			groupRoll();
+			printDice();
+			suggestions(p);
+			System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
+			System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
+			System.out.println("Type (3) to score this round");
+		}
+		if ((i==10)&&p.name.equals("Bob")) {
+			System.out.println("1");
+			System.out.println(
+					"Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
+			for (int z = 0; z < DiceGroup.size(); z++) {
+				System.out.println("Position: (" + (z + 1) + ") :" + DiceGroup.get(z).getNumber());
+			}
+			
+			System.out.println("3 4");
+			readKeep("3 4");
+			printDice();
+			suggestions(p);
+			System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
+			System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
+			System.out.println("Type (3) to score this round");
+			System.out.println("1");
+			count--;
+			System.out.println(
+					"Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
+			for (int z = 0; z < DiceGroup.size(); z++) {
+				System.out.println("Position: (" + (z + 1) + ") :" + DiceGroup.get(z).getNumber());
+			}
+			System.out.println("1 2 3 5");
+			readKeep("1 2 3 5");
+			printDice();
+			suggestions(p);
+			t=true;
+		}
+		if (t==false) {
 		System.out.println("3");
+		}
 		choice = inputChoiceTest(p,i);
 		return choice;
 	}
@@ -493,7 +587,7 @@ int testPick=1;
 				dg.add(d);
 			}
 			Dice d = new Dice();
-			d.setNumber(1);
+			d.setNumber(3);
 			dg.add(d);
 			this.DiceGroup = dg;
 		}

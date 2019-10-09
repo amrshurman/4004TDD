@@ -35,12 +35,70 @@ public class Player2Cucumber extends TestCase{
 		assertEquals(p2.ss.p2.sixes,30);
 		assertEquals(p2.ss.p2.Bonus,35);
 		assertEquals(p2.ss.p2.threeOfKind,12);
-		assertEquals(p2.ss.p2.fourOfKind,17);
-		assertEquals(p2.ss.p2.fullHouse,25);
-		assertEquals(p2.ss.p2.smStraight,30);
+		assertEquals(p2.ss.p2.fourOfKind,19);
+		assertTrue(p2.ss.p2.fullB);
+		assertTrue(p2.ss.p2.smB);
 		assertEquals(p2.ss.p2.lgStraight,40);
 		assertEquals(p2.ss.p2.Yahtzee,50);
 		assertTrue(p2.ss.p2.chance!=0);
 	}
-
+	@Given("I have finished playing a full game of yahtzee with Player 2")
+	public void I_have_finished_playing_a_full_game_of_yahtzee_Player_2() throws IOException {
+	}
+	@Then("check that P2 scored Ones correctly")
+	public void check_that_P2_scored_Ones_correctly() {
+assertEquals(p2.ss.p2.aces,5);
+	}
+	@Then("check that P2 scored Twos correctly")
+	public void check_that_P2_scored_Twos_correctly() {
+assertEquals(p2.ss.p2.twos,10);
+	}
+	@Then("check that P2 scored Threes correctly")
+	public void check_that_P2_scored_Threes_correctly() {
+assertEquals(p2.ss.p2.threes,15);
+	}
+	@Then("check that P2 scored Fours correctly")
+	public void check_that_P2_scored_Fours_correctly() {
+assertEquals(p2.ss.p2.fours,20);
+	}
+	@Then("check that P2 scored Fives correctly")
+	public void check_that_P2_scored_Fives_correctly() {
+assertEquals(p2.ss.p2.fives,25);
+	}
+	@Then("check that P2 scored Sixes correctly")
+	public void check_that_P2_scored_Sixes_correctly() {
+assertEquals(p2.ss.p2.sixes,30);
+	}
+	@Then("check that P2 scored Bonus correctly")
+	public void check_that_P2_scored_Bonus_correctly() {
+assertEquals(p2.ss.p2.Bonus,35);
+	}
+	@Then("check that P2 scored Three of a Kind correctly")
+	public void check_that_P2_scored_Three_of_a_Kind_correctly() {
+assertEquals(p2.ss.p2.threeOfKind,12);
+	}
+	@Then("check that P2 scored Four of a Kind correctly")
+	public void check_that_P2_scored_Four_of_a_Kind_correctly() {
+assertEquals(p2.ss.p2.fourOfKind,19);
+	}
+	@Then("check that P2 scored Full House correctly")
+	public void check_that_P2_scored_Full_House_correctly() {
+		assertTrue(p2.ss.p2.fullB);
+	}
+	@Then("check that P2 scored Small Straight correctly")
+	public void check_that_P2_scored_Small_Straight_correctly() {
+assertTrue(p2.ss.p2.smB);
+	}
+	@Then("check that P2 scored Long Straight correctly")
+	public void check_that_P2_scored_Long_Straight_correctly() {
+assertEquals(p2.ss.p2.lgStraight,40);
+	}
+	@Then("check that P2 scored Yahtzee correctly")
+	public void check_that_P2_scored_Yahtzee_correctly() {
+		assertEquals(p2.ss.p2.Yahtzee,50);
+	}
+	@Then("check that P2 scored Chance correctly")
+	public void check_that_P2_scored_Chance_correctly() {
+	assertTrue(p2.ss.p2.chance!=0);
+	}
 }
