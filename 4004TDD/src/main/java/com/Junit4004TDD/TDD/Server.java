@@ -4,11 +4,11 @@ import java.io.*;
 import java.net.*;
 
 public class Server {
+	static Player p1 = new Player("null");
+	static Player p2 = new Player("null");
+	static Player p3 = new Player("null");
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		// int count = 0;
-		Player p1 = new Player("null");
-		Player p2 = new Player("null");
-		Player p3 = new Player("null");
 		String test=null;
 		if (args.length>0) {
 		test=args[0];
@@ -174,6 +174,7 @@ public class Server {
 			round++;
 			if (p3.round==14) {
 			    	 ss.winner();
+			    	 if (args[0].equals("test")) {break;}
 			    	 System.exit(1);
 			}
 		}

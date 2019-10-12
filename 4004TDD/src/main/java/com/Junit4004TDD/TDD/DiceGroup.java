@@ -496,6 +496,8 @@ int testPick=1;
 		System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
 		System.out.println("Type (3) to score this round");
 		if ((i==10)&&p.name.equals("Tom")) {
+			int c=0;
+			for (int q=0;q<2;q++) {
 			System.out.println("1");
 			System.out.println(
 					"Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
@@ -503,13 +505,110 @@ int testPick=1;
 				System.out.println("Position: (" + (z + 1) + ") :" + DiceGroup.get(z).getNumber());
 			}
 			count--;
-			System.out.println("1 2 4");
-			readKeep("1 2 4");
+			if (c==0) {
+			System.out.println("1 2");
+			readKeep("1 2");
+			}
+			else {
+				System.out.println("1");
+				readKeep("1");
+			}
+			c++;
 			printDice();
 			suggestions(p);
+			t=true;
+			if (count>0) {
 			System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
 			System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
 			System.out.println("Type (3) to score this round");
+			}
+		}
+		}
+		if ((i==8)&&p.name.equals("Tom")) {
+			int c=0;
+			for (int q=0;q<2;q++) {
+			System.out.println("1");
+			System.out.println(
+					"Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
+			for (int z = 0; z < DiceGroup.size(); z++) {
+				System.out.println("Position: (" + (z + 1) + ") :" + DiceGroup.get(z).getNumber());
+			}
+			count--;
+			if (c==0) {
+			System.out.println("1 2 4 5");
+			readKeep("1 2 4 5");
+			}
+			else {
+				System.out.println("1 2 3");
+				readKeep("1 2 3");	
+			}
+			printDice();
+			suggestions(p);
+			t=true;
+			if (count>0) {
+			System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
+			System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
+			System.out.println("Type (3) to score this round");
+			}
+		}
+		}
+		if ((i==7)&&p.name.equals("Tom")) {
+			int c=0;
+			for (int q=0;q<2;q++) {
+			System.out.println("1");
+			System.out.println(
+					"Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
+			for (int z = 0; z < DiceGroup.size(); z++) {
+				System.out.println("Position: (" + (z + 1) + ") :" + DiceGroup.get(z).getNumber());
+			}
+			count--;
+			if (c==0) {
+			System.out.println("1");
+			readKeep("1");
+			}
+			else {
+				System.out.println("1 2");
+				readKeep("1 2");
+			}
+			c++;
+			printDice();
+			suggestions(p);
+			t=true;
+			if (count>0) {
+			System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
+			System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
+			System.out.println("Type (3) to score this round");
+			}
+		}
+		}	
+		if ((i==6)&&p.name.equals("Tom")) {
+			int c=0;
+			for (int q=0;q<2;q++) {
+			System.out.println("1");
+			System.out.println(
+					"Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
+			for (int z = 0; z < DiceGroup.size(); z++) {
+				System.out.println("Position: (" + (z + 1) + ") :" + DiceGroup.get(z).getNumber());
+			}
+			count--;
+			if (c==0) {
+			System.out.println("2 3 4");
+			readKeep("2 3 4");
+			}
+			else {
+				System.out.println("2 3 4 5");
+				readKeep("2 3 4 5");
+			}
+			c++;
+			printDice();
+			suggestions(p);
+			t=true;
+			if (count>0) {
+			System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
+			System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
+			System.out.println("Type (3) to score this round");
+			}
+		}
 		}
 		if ((i==9)&&p.name.equals("Tom")) {
 			System.out.println("2");
@@ -519,6 +618,11 @@ int testPick=1;
 			System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
 			System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
 			System.out.println("Type (3) to score this round");
+			System.out.println("2");
+			groupRoll();
+			printDice();
+			suggestions(p);
+			t=true;
 		}
 		if ((i==10)&&p.name.equals("Bob")) {
 			System.out.println("1");
@@ -527,26 +631,19 @@ int testPick=1;
 			for (int z = 0; z < DiceGroup.size(); z++) {
 				System.out.println("Position: (" + (z + 1) + ") :" + DiceGroup.get(z).getNumber());
 			}
-			
 			System.out.println("3 4");
 			readKeep("3 4");
+			printDice();
+			suggestions(p);
+		}
+		if ((i==9)&&p.name.equals("Bob")) {
+			System.out.println("2");
+			groupRoll();
 			printDice();
 			suggestions(p);
 			System.out.println("Type (1) to select dice to hold and reroll the rest. (" + count + " tries left.) ");
 			System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
 			System.out.println("Type (3) to score this round");
-			System.out.println("1");
-			count--;
-			System.out.println(
-					"Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
-			for (int z = 0; z < DiceGroup.size(); z++) {
-				System.out.println("Position: (" + (z + 1) + ") :" + DiceGroup.get(z).getNumber());
-			}
-			System.out.println("1 2 3 5");
-			readKeep("1 2 3 5");
-			printDice();
-			suggestions(p);
-			t=true;
 		}
 		if (t==false) {
 		System.out.println("3");

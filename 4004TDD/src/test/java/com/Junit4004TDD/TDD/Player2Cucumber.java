@@ -32,10 +32,10 @@ public class Player2Cucumber extends TestCase{
 		assertEquals(p2.ss.p2.threes,15);
 		assertEquals(p2.ss.p2.fours,20);
 		assertEquals(p2.ss.p2.fives,25);
-		assertEquals(p2.ss.p2.sixes,30);
+		assertTrue(p2.ss.p2.sixesB);
 		assertEquals(p2.ss.p2.Bonus,35);
-		assertEquals(p2.ss.p2.threeOfKind,12);
-		assertEquals(p2.ss.p2.fourOfKind,19);
+		assertTrue(p2.ss.p2.ThreeKB);
+		assertTrue(p2.ss.p2.FourKB);
 		assertTrue(p2.ss.p2.fullB);
 		assertTrue(p2.ss.p2.smB);
 		assertEquals(p2.ss.p2.lgStraight,40);
@@ -67,7 +67,7 @@ assertEquals(p2.ss.p2.fives,25);
 	}
 	@Then("check that P2 scored Sixes correctly")
 	public void check_that_P2_scored_Sixes_correctly() {
-assertEquals(p2.ss.p2.sixes,30);
+assertTrue(p2.ss.p2.sixesB);
 	}
 	@Then("check that P2 scored Bonus correctly")
 	public void check_that_P2_scored_Bonus_correctly() {
@@ -75,11 +75,11 @@ assertEquals(p2.ss.p2.Bonus,35);
 	}
 	@Then("check that P2 scored Three of a Kind correctly")
 	public void check_that_P2_scored_Three_of_a_Kind_correctly() {
-assertEquals(p2.ss.p2.threeOfKind,12);
+		assertTrue(p2.ss.p2.ThreeKB);
 	}
 	@Then("check that P2 scored Four of a Kind correctly")
 	public void check_that_P2_scored_Four_of_a_Kind_correctly() {
-assertEquals(p2.ss.p2.fourOfKind,19);
+		assertTrue(p2.ss.p2.FourKB);
 	}
 	@Then("check that P2 scored Full House correctly")
 	public void check_that_P2_scored_Full_House_correctly() {
