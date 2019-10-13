@@ -27,8 +27,8 @@ public class Player2Cucumber extends TestCase{
 
 	@Then("check that player 2 finishes game correctly")
 	public void check_that_correct_value_is_stored() {
-		assertEquals(p2.ss.p2.aces,5);
-		assertEquals(p2.ss.p2.twos,10);
+		assertTrue(p2.ss.p2.acesB);
+		assertTrue(p2.ss.p2.twosB);
 		assertEquals(p2.ss.p2.threes,15);
 		assertEquals(p2.ss.p2.fours,20);
 		assertEquals(p2.ss.p2.fives,25);
@@ -47,11 +47,11 @@ public class Player2Cucumber extends TestCase{
 	}
 	@Then("check that P2 scored Ones correctly")
 	public void check_that_P2_scored_Ones_correctly() {
-assertEquals(p2.ss.p2.aces,5);
+assertTrue(p2.ss.p2.acesB);
 	}
 	@Then("check that P2 scored Twos correctly")
 	public void check_that_P2_scored_Twos_correctly() {
-assertEquals(p2.ss.p2.twos,10);
+assertTrue(p2.ss.p2.twosB);
 	}
 	@Then("check that P2 scored Threes correctly")
 	public void check_that_P2_scored_Threes_correctly() {
