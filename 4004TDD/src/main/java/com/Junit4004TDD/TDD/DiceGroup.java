@@ -625,7 +625,7 @@ int testPick=1;
 			suggestions(p);
 			t=true;
 		}
-		if ((i==2)&&p.name.equals("Tom")) {
+		if ((i==1)&&p.name.equals("Tom")) {
 			System.out.println("1");
 			System.out.println(
 					"Please Enter in the Dice position that you want to hold. Please Seperate each number with a <<SPACE>>");
@@ -641,7 +641,7 @@ int testPick=1;
 			System.out.println("Type (2) to reroll all the dice. (" + count + " tries left.) ");
 			System.out.println("Type (3) to score this round");
 		}
-		if ((i==1)&&p.name.equals("Tom")) {
+		if ((i==2)&&p.name.equals("Tom")) {
 			System.out.println("2");
 			groupRoll();
 			printDice();
