@@ -8,8 +8,8 @@ Feature: Client
     When I connect player 1 to the server
     Then check that player 1 finishes game correctly
 
-  @exampleTable @client1Scores
-  Scenario Outline: client1Scores
+  @exampleTable @Client1Scores
+  Scenario Outline: Client1Scores
     Given I have finished playing a full game of yahtzee with Player 1
     Then check that P1 scored <Category> correctly
 

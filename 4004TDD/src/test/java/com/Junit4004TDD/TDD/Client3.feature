@@ -8,8 +8,8 @@ Feature: Client
     When I connect player 3 to the server
     Then check that player 3 finishes game correctly
 
-  @client3Scores
-  Scenario Outline: client3Scores
+  @Client3Scores
+  Scenario Outline: Client3Scores
     Given I have finished playing a full game of yahtzee with Player 3
     Then check that P3 scored <Category> correctly
 
