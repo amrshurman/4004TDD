@@ -11,7 +11,7 @@ public class DiceTest extends TestCase {
 		Dice d = new Dice();
 		int i = 0;
 		i = d.roll();
-		assertNotEquals(i, 0); // if roll works then we should get a NON ZERO value as a roll
+		assertFalse(i==0); // if roll works then we should get a NON ZERO value as a roll
 	}
 
 	public void testGroupRoll() { // tests whether multiple rolls can be done at once. Also tests the "total
@@ -20,7 +20,7 @@ public class DiceTest extends TestCase {
 		int i = 0;
 		dg.groupRoll();
 		i = dg.getTotal(dg.DiceGroup);
-		assertNotEquals(i, 0);
+		assertFalse(i==0);
 	}
 
 	public void testSoreSheet() { //test scoresheet functionality and how its printed
