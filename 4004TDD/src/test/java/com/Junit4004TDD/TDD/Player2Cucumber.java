@@ -21,12 +21,12 @@ public class Player2Cucumber extends TestCase{
 	}
 
 	@When("I connect player 2 to the server")
-	public void i_am_scoring_for_each_category() {
+	public void I_connect_player_2_to_the_server() {
 
 	}
 
 	@Then("check that player 2 finishes game correctly")
-	public void check_that_correct_value_is_stored() {
+	public void check_that_player_2_finishes_game_correctly() {
 /*		assertTrue(p2.ss.p2.acesB);
 		assertTrue(p2.ss.p2.twosB);
 		assertEquals(p2.ss.p2.threes,15);

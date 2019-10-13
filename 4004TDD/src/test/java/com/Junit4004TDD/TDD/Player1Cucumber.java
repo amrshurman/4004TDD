@@ -21,12 +21,12 @@ public class Player1Cucumber extends TestCase{
 
 	}
 	@When("I connect player 1 to the server")
-	public void i_am_scoring_for_each_category() {
+	public void I_connect_player_1_to_the_server() {
 
 	}
 
 	@Then("check that player 1 finishes game correctly")
-	public void check_that_correct_value_is_stored() {
+	public void check_that_player_1_finishes_game_correctly() {
 
 	}
 	
