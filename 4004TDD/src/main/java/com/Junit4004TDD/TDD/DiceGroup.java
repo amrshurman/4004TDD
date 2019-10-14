@@ -506,12 +506,12 @@ int testPick=1;
 			}
 			count--;
 			if (c==0) {
-			System.out.println("1 2");
-			readKeep("1 2");
+			System.out.println("4 5");
+			readKeep("4 5");
 			}
 			else {
-				System.out.println("1");
-				readKeep("1");
+				System.out.println("5");
+				readKeep("5");
 			}
 			c++;
 			printDice();
@@ -539,9 +539,10 @@ int testPick=1;
 			readKeep("1 2 4 5");
 			}
 			else {
-				System.out.println("1 2 3");
-				readKeep("1 2 3");	
+				System.out.println("2 3 4");
+				readKeep("1 2 4");	
 			}
+			c++;
 			printDice();
 			suggestions(p);
 			t=true;
